@@ -117,7 +117,7 @@ This document tracks known issues and planned improvements for the Nebula Everyw
 
 ### Documentation
 - [x] **Add GitHub repository link to demo site interface** ✅ COMPLETED
-  - Feature: Add prominent link to https://github.com/davidteren/simple-morph in the live demo
+  - Feature: Add prominent link to https://github.com/davidteren/simple_morph in the live demo
   - Impact: Easy access to source code directly from the demo site
   - Technical: Added repository links in navigation, hero section, mobile menu, and footer
   - Status: Comprehensive GitHub integration with responsive design and hover effects

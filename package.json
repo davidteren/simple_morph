@@ -36,10 +36,10 @@
   "homepage": "https://davidteren.github.io/simple_morph/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidteren/simple-morph.git"
+    "url": "https://github.com/davidteren/simple_morph.git"
   },
   "bugs": {
-    "url": "https://github.com/davidteren/simple-morph/issues"
+    "url": "https://github.com/davidteren/simple_morph/issues"
   },
   "engines": {
     "node": ">=14.0.0"
