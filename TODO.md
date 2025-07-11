@@ -107,17 +107,18 @@ This document tracks known issues and planned improvements for the Nebula Everyw
 ## 🚀 New Features & Enhancements
 
 ### Code Examples
-- [ ] **Add collapsible accordion sections to each component**
+- [x] **Add collapsible accordion sections to each component** ✅ COMPLETED
   - Feature: Show code examples for each component
   - Impact: Better developer experience and documentation
-  - Technical: Implement accordion functionality with code syntax highlighting
+  - Technical: Implemented accordion functionality with comprehensive code examples
+  - Status: All components now have complete code documentation
 
 ### Documentation
-- [ ] **Add GitHub repository link to demo site interface**
-  - Feature: Add prominent link to https://github.com/davidteren/nebula-ui in the live demo
+- [x] **Add GitHub repository link to demo site interface** ✅ COMPLETED
+  - Feature: Add prominent link to https://github.com/davidteren/simple-morph in the live demo
   - Impact: Easy access to source code directly from the demo site
-  - Technical: Add repository link button/badge to demo site header or footer
-  - Context: Improve developer experience for live demo at https://davidteren.github.io/nebula-ui/
+  - Technical: Added repository links in navigation, hero section, mobile menu, and footer
+  - Status: Comprehensive GitHub integration with responsive design and hover effects
 
 - [ ] **Improve component documentation**
   - Feature: Add more detailed usage examples
