@@ -1,0 +1,35 @@
+# Node dependencies
+node_modules/
+
+# Vite build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env*
+
+# Test output
+coverage/
+playwright-report/
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Misc cache
+.cache/
+.sass-cache/
+.parcel-cache/
+
+# Optional backups
+*.swp
+*.bak
