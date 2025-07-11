@@ -1841,6 +1841,59 @@ select {
   }
 }
 
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: var(--spacing-2xl) 0;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-features {
+  margin: var(--spacing-2xl) 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.feature-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: var(--border-width) solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: all var(--transition-normal) ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glass-shadow-strong);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.feature-card h3 {
+  margin-bottom: var(--spacing-md);
+  font-size: 1.25rem;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
 /* Hero Actions */
 .hero-actions {
   display: flex;
@@ -1909,6 +1962,169 @@ select {
 
 .footer-links a:not(.github-button):hover {
   color: var(--text-secondary);
+}
+
+/* Page Headers */
+.page-header {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-intro {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Navigation Active States */
+.navbar-nav a.active {
+  color: var(--accent-primary);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-small);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--glass-border);
+}
+
+.mobile-menu a.active {
+  color: var(--accent-primary);
+  background: var(--glass-bg);
+  border-left: 3px solid var(--accent-primary);
+}
+
+/* Step Grid for Next Steps */
+.next-steps {
+  margin-top: var(--spacing-2xl);
+  text-align: center;
+}
+
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.step-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: var(--border-width) solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-normal) ease;
+  display: block;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glass-shadow-strong);
+  border-color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.step-card h4 {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.step-card p {
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+/* Demo Form Styling */
+.demo-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Badge Demo */
+.badge-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+/* Tooltip Demo */
+.tooltip-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Demo */
+.modal-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .step-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .tooltip-demo,
+  .modal-demo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tooltip-demo > *,
+  .modal-demo > * {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {

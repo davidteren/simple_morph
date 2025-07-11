@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Morph CSS Framework - Advanced Features</title>
+    <link rel="stylesheet" href="simple-morph.css">
+    <script type="module" src="simple-morph.js"></script>
+    <!-- GitHub Buttons Script -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">
+            <div class="navbar-logo">S</div>
+            Simple Morph
+        </a>
+        <nav class="navbar-nav">
+            <ul>
+                <li><a href="index.html">Semantic</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="advanced.html" class="active">Advanced</a></li>
+                <li>
+                    <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
+                </li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <!-- SVG for menu icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<div class="mobile-menu">
+    <a href="index.html">Semantic</a>
+    <a href="components.html">Components</a>
+    <a href="advanced.html">Advanced</a>
+    <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
+</div>
+
+<main>
+    <section class="page-header">
+        <h1>Advanced Features</h1>
+        <p class="page-subtitle">Powerful glass effects, complex interactions, and advanced visual components for creating stunning user interfaces.</p>
+    </section>
+
+    <!-- Glass Effects -->
+    <section id="glass-effects" class="gradient-demo">
+        <h2>Interactive Glass Effects</h2>
+        
+        <article>
+            <h3>Glass Effect Variants</h3>
+            <p>Click the buttons below to see different glass effects applied to the demo card:</p>
+            <div class="button-demo">
+                <button onclick="changeGlassDemo('glass-subtle')">Subtle</button>
+                <button onclick="changeGlassDemo('glass')">Standard</button>
+                <button onclick="changeGlassDemo('glass-strong')">Strong</button>
+                <button onclick="changeGlassDemo('glass-intense')">Intense</button>
+            </div>
+            <div id="glass-demo-card" class="card glass hover-glow tilt">
+                <h4>Demo Card</h4>
+                <p>This card demonstrates the selected glass effect against the colorful background.</p>
+                <p id="glass-demo-info">Current: Standard Glass (60px blur)</p>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Glass Effect Classes --&gt;
+&lt;div class="card glass-subtle"&gt;Subtle glass effect&lt;/div&gt;
+&lt;div class="card glass"&gt;Standard glass effect&lt;/div&gt;
+&lt;div class="card glass-strong"&gt;Strong glass effect&lt;/div&gt;
+&lt;div class="card glass-intense"&gt;Intense glass effect&lt;/div&gt;</code></pre>
+            </details>
+        </article>
+    </section>
+
+    <!-- Interactive Cards -->
+    <section id="interactive-cards">
+        <h2>Interactive Card Effects</h2>
+
+        <article>
+            <h3>Enhanced Cards with Effects</h3>
+            <div class="card-grid">
+                <div class="card tilt hover-glow">
+                    <h4>Hover & Tilt</h4>
+                    <p>This card has hover glow effect with smooth tilt animations on mouse movement!</p>
+                </div>
+                <div class="card tilt shimmer">
+                    <h4>Shimmer Effect</h4>
+                    <p>This card demonstrates the shimmer animation effect with tilt enabled!</p>
+                </div>
+                <div class="card tilt glass-strong">
+                    <h4>Strong Glass</h4>
+                    <p>Enhanced glassmorphism effect with stronger blur and opacity. Try moving the mouse!</p>
+                </div>
+                <div class="card card--image tilt">
+                    <img src="https://via.placeholder.com/400x200" alt="Card header image">
+                    <div class="card-body">
+                        <h4>Image Card with Tilt</h4>
+                        <p>Flexible card with header image and tilt effect applied!</p>
+                    </div>
+                </div>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Interactive Card Effects --&gt;
+&lt;div class="card tilt hover-glow"&gt;
+    &lt;h4&gt;Hover &amp; Tilt&lt;/h4&gt;
+    &lt;p&gt;Card with hover glow and tilt effects&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="card tilt shimmer"&gt;
+    &lt;h4&gt;Shimmer Effect&lt;/h4&gt;
+    &lt;p&gt;Card with shimmer animation&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="card tilt glass-strong"&gt;
+    &lt;h4&gt;Strong Glass&lt;/h4&gt;
+    &lt;p&gt;Enhanced glassmorphism with tilt&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
+        </article>
+
+        <article>
+            <h3>Loading States</h3>
+            <div class="card card--loading">
+                <div class="loading-skeleton">
+                    <div class="skeleton-line skeleton-title"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line skeleton-short"></div>
+                </div>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;div class="card card--loading"&gt;
+    &lt;div class="loading-skeleton"&gt;
+        &lt;div class="skeleton-line skeleton-title"&gt;&lt;/div&gt;
+        &lt;div class="skeleton-line"&gt;&lt;/div&gt;
+        &lt;div class="skeleton-line skeleton-short"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </details>
+        </article>
+    </section>
+
+    <!-- Advanced Interactions -->
+    <section id="advanced-interactions">
+        <h2>Advanced Interactive Components</h2>
+
+        <article>
+            <h3>Dropdown Menus</h3>
+            <div class="dropdown">
+                <button class="dropdown-trigger">Options ▼</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Account</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" href="#">Help & Support</a></li>
+                    <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                </ul>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;div class="dropdown"&gt;
+    &lt;button class="dropdown-trigger"&gt;Options ▼&lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Profile Settings&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Account&lt;/a&gt;&lt;/li&gt;
+        &lt;hr class="dropdown-divider"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Help &amp; Support&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Sign Out&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </details>
+        </article>
+
+        <article>
+            <h3>Tooltips</h3>
+            <div class="tooltip-demo">
+                <button class="tooltip" data-tooltip="This is a helpful tooltip message">Hover for tooltip</button>
+                <span class="tooltip" data-tooltip="Tooltips work on any element">Hover this text</span>
+                <button class="tooltip button-primary" data-tooltip="Primary button with tooltip">Primary with tooltip</button>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Tooltip Examples --&gt;
+&lt;button class="tooltip" data-tooltip="Helpful message"&gt;Hover for tooltip&lt;/button&gt;
+&lt;span class="tooltip" data-tooltip="Works on any element"&gt;Hover this text&lt;/span&gt;
+&lt;button class="tooltip button-primary" data-tooltip="Primary tooltip"&gt;Button with tooltip&lt;/button&gt;</code></pre>
+            </details>
+        </article>
+
+        <article>
+            <h3>Advanced Modals</h3>
+            <div class="modal-demo">
+                <button onclick="openModal('modal-small')" class="button-secondary">Small Modal</button>
+                <button onclick="openModal('modal-large')" class="button-primary">Large Modal</button>
+                <button onclick="openModal('modal-form')" class="button-outline">Form Modal</button>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Modal Variants --&gt;
+&lt;div class="modal modal--small" id="modal-small"&gt;
+    &lt;div class="modal-content glass-intense tilt"&gt;
+        &lt;header class="modal-header"&gt;
+            &lt;h2&gt;Small Modal&lt;/h2&gt;
+            &lt;button class="modal-close"&gt;×&lt;/button&gt;
+        &lt;/header&gt;
+        &lt;div class="modal-body"&gt;
+            &lt;p&gt;Compact modal for quick confirmations&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="modal modal--large" id="modal-large"&gt;
+    &lt;div class="modal-content glass-intense tilt"&gt;
+        &lt;!-- Large modal content --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </details>
+        </article>
+    </section>
+
+    <!-- Data Components -->
+    <section id="data-components">
+        <h2>Advanced Data Components</h2>
+
+        <article>
+            <h3>Data Table with Pagination</h3>
+            <div class="table-container">
+                <table id="feature-table">
+                    <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Progress</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Glassmorphism Effects</td>
+                        <td><span class="badge badge-success">Complete</span></td>
+                        <td>High</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Responsive</td>
+                        <td><span class="badge badge-success">Complete</span></td>
+                        <td>High</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr>
+                        <td>Dark Theme</td>
+                        <td><span class="badge badge-success">Complete</span></td>
+                        <td>Medium</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr>
+                        <td>Advanced Animations</td>
+                        <td><span class="badge badge-warning">In Progress</span></td>
+                        <td>Medium</td>
+                        <td>75%</td>
+                    </tr>
+                    <tr>
+                        <td>Accessibility Improvements</td>
+                        <td><span class="badge badge-success">Complete</span></td>
+                        <td>High</td>
+                        <td>100%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-pagination">
+                <button class="pagination-btn" onclick="previousPage()">← Previous</button>
+                <span class="pagination-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+                <button class="pagination-btn" onclick="nextPage()">Next →</button>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;div class="table-container"&gt;
+    &lt;table id="data-table"&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Column 1&lt;/th&gt;
+            &lt;th&gt;Column 2&lt;/th&gt;
+            &lt;th&gt;Column 3&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Data 1&lt;/td&gt;
+            &lt;td&gt;&lt;span class="badge badge-success"&gt;Status&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;Data 3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div class="table-pagination"&gt;
+    &lt;button class="pagination-btn" onclick="previousPage()"&gt;← Previous&lt;/button&gt;
+    &lt;span class="pagination-info"&gt;Page 1 of 5&lt;/span&gt;
+    &lt;button class="pagination-btn" onclick="nextPage()"&gt;Next →&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </details>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Simple Morph CSS Framework. Built with ❤️ for the future of web design.</p>
+    <p>Inspired by Simple.css philosophy with modern futuristic aesthetics.</p>
+    <div class="footer-links">
+        <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
+        <span class="footer-divider">•</span>
+        <a href="https://simplecss.org" target="_blank" rel="noopener noreferrer">Inspired by Simple.css</a>
+    </div>
+</footer>
+
+<!-- Advanced Modals -->
+<div class="modal modal--small" id="modal-small" role="dialog" aria-labelledby="modal-small-title">
+    <div class="modal-content glass-intense tilt">
+        <header class="modal-header">
+            <h2 id="modal-small-title">Small Modal</h2>
+            <button class="modal-close button-outline" aria-label="Close modal">×</button>
+        </header>
+        <div class="modal-body">
+            <p>This is a compact modal ideal for quick confirmations. Enhanced with glass effects and tilt animations.</p>
+        </div>
+        <footer class="modal-footer">
+            <button class="modal-close button-secondary">Cancel</button>
+            <button class="button-primary">Confirm</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal modal--large" id="modal-large" role="dialog" aria-labelledby="modal-large-title">
+    <div class="modal-content glass-intense tilt">
+        <header class="modal-header">
+            <h2 id="modal-large-title">Large Modal</h2>
+            <button class="modal-close button-outline" aria-label="Close modal">×</button>
+        </header>
+        <div class="modal-body">
+            <p>This wider modal provides more space for complex content, forms, or media. Features enhanced glass effects and interactive animations.</p>
+            <div class="card">
+                <h4>Example Card Inside Modal</h4>
+                <p>This demonstrates how components nest seamlessly within modals.</p>
+            </div>
+        </div>
+        <footer class="modal-footer">
+            <button class="modal-close button-secondary">Close</button>
+            <button class="button-primary">Save Changes</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="modal-form" role="dialog" aria-labelledby="modal-form-title">
+    <div class="modal-content glass-intense tilt">
+        <header class="modal-header">
+            <h2 id="modal-form-title">Form Modal</h2>
+            <button class="modal-close button-outline" aria-label="Close modal">×</button>
+        </header>
+        <div class="modal-body">
+            <p>This modal contains a form with advanced styling and validation.</p>
+            <form>
+                <label for="modal-name">Name</label>
+                <input type="text" id="modal-name" placeholder="Enter your name">
+
+                <label for="modal-email">Email</label>
+                <input type="email" id="modal-email" placeholder="your@email.com">
+
+                <label for="modal-message">Message</label>
+                <textarea id="modal-message" placeholder="Your message..."></textarea>
+            </form>
+        </div>
+        <footer class="modal-footer">
+            <button class="modal-close button-secondary">Cancel</button>
+            <button class="button-primary">Submit</button>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

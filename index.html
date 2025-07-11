@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Morph CSS Framework Demo</title>
+    <title>Simple Morph CSS Framework - Semantic HTML First</title>
     <link rel="stylesheet" href="simple-morph.css">
     <script type="module" src="simple-morph.js"></script>
     <!-- GitHub Buttons Script -->
@@ -12,16 +12,15 @@
 <body>
 <header class="navbar">
     <div class="navbar-container">
-        <a href="#" class="navbar-brand">
+        <a href="index.html" class="navbar-brand">
             <div class="navbar-logo">S</div>
             Simple Morph
         </a>
         <nav class="navbar-nav">
             <ul>
-                <li><a href="#typography">Typography</a></li>
-                <li><a href="#components">Components</a></li>
-                <li><a href="#forms">Forms</a></li>
-                <li><a href="#utilities">Utilities</a></li>
+                <li><a href="index.html" class="active">Semantic</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="advanced.html">Advanced</a></li>
                 <li>
                     <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
                 </li>
@@ -37,661 +36,76 @@
 </header>
 
 <div class="mobile-menu">
-    <a href="#typography">Typography</a>
-    <a href="#components">Components</a>
-    <a href="#forms">Forms</a>
-    <a href="#utilities">Utilities</a>
+    <a href="index.html">Semantic</a>
+    <a href="components.html">Components</a>
+    <a href="advanced.html">Advanced</a>
     <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
 </div>
 
 <main>
-    <h1>Simple Morph CSS Framework</h1>
-    <p>A modern CSS framework inspired by Simple.css with futuristic dark theme, glassmorphism effects, and semantic HTML-first approach.</p>
-
-
-
-    <!-- Components & Interactive Elements (moved first) -->
-    <section id="components">
-        <h2>Components & Interactive Elements</h2>
-
-        <article>
-            <h3>Navigation Components</h3>
-            <nav class="breadcrumb">
-                <ol>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Components</a></li>
-                    <li class="current">Navigation</li>
-                </ol>
-            </nav>
-
-            <h4>Navbar Demo</h4>
-            <header class="navbar demo-navbar">
-                <div class="navbar-container">
-                    <a href="#" class="navbar-brand">
-                        <div class="navbar-logo">S</div>
-                        Simple Morph Demo
-                    </a>
-                    <nav class="navbar-nav">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
+    <section class="hero">
+        <h1>Simple Morph CSS Framework</h1>
+        <p class="hero-subtitle">A modern CSS framework inspired by Simple.css with futuristic dark theme, glassmorphism effects, and semantic HTML-first approach.</p>
+        
+        <div class="hero-features">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🏷️ Semantic First</h3>
+                    <p>Start with standard HTML elements. No classes required for basic styling.</p>
                 </div>
-            </header>
-
-            <div class="tabs">
-                <div class="tab-buttons">
-                    <button class="tab-button active" data-tab="overview">Overview</button>
-                    <button class="tab-button" data-tab="features">Features</button>
-                    <button class="tab-button" data-tab="settings">Settings</button>
+                <div class="feature-card">
+                    <h3>🎨 Glass Effects</h3>
+                    <p>Beautiful glassmorphism effects with customizable blur and opacity levels.</p>
                 </div>
-                <div class="tab-content active" data-tab-content="overview">
-                    <p>This is the overview tab content. It demonstrates how tabs work with smooth transitions and glassmorphism styling.</p>
-                </div>
-                <div class="tab-content" data-tab-content="features">
-                    <p>Features tab content goes here. You can include any HTML content within tab panels.</p>
-                    <ul>
-                        <li>Smooth animations</li>
-                        <li>Glassmorphism effects</li>
-                        <li>Keyboard navigation support</li>
-                    </ul>
-                </div>
-                <div class="tab-content" data-tab-content="settings">
-                    <p>Settings and configuration options would be displayed in this tab.</p>
+                <div class="feature-card">
+                    <h3>📱 Mobile Ready</h3>
+                    <p>Responsive design that works perfectly on all devices out of the box.</p>
                 </div>
             </div>
+        </div>
 
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Navigation Components --&gt;
-&lt;!-- Breadcrumbs --&gt;
-&lt;nav class="breadcrumb"&gt;
-    &lt;ol&gt;
-        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;Components&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="current"&gt;Navigation&lt;/li&gt;
-    &lt;/ol&gt;
-&lt;/nav&gt;
-
-&lt;!-- Tabs --&gt;
-&lt;div class="tabs"&gt;
-    &lt;div class="tab-buttons"&gt;
-        &lt;button class="tab-button active" data-tab="overview"&gt;Overview&lt;/button&gt;
-        &lt;button class="tab-button" data-tab="features"&gt;Features&lt;/button&gt;
-        &lt;button class="tab-button" data-tab="settings"&gt;Settings&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class="tab-content active" data-tab-content="overview"&gt;
-        &lt;p&gt;Overview tab content with smooth transitions.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="tab-content" data-tab-content="features"&gt;
-        &lt;p&gt;Features tab content goes here.&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Buttons</h3>
-            <div class="button-demo">
-                <button>Default Button</button>
-                <button class="button-primary">Primary Button</button>
-                <button class="button-secondary">Secondary Button</button>
-                <button class="button-success">Success Button</button>
-                <button class="button-warning">Warning Button</button>
-                <button class="button-error">Error Button</button>
-                <button class="button-outline">Outline Button</button>
-                <button disabled>Disabled Button</button>
-            </div>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Default button --&gt;
-&lt;button&gt;Default Button&lt;/button&gt;
-
-&lt;!-- Button variants --&gt;
-&lt;button class="button-primary"&gt;Primary&lt;/button&gt;
-&lt;button class="button-secondary"&gt;Secondary&lt;/button&gt;
-&lt;button class="button-success"&gt;Success&lt;/button&gt;
-&lt;button class="button-warning"&gt;Warning&lt;/button&gt;
-&lt;button class="button-error"&gt;Error&lt;/button&gt;
-&lt;button class="button-outline"&gt;Outline&lt;/button&gt;
-&lt;button disabled&gt;Disabled&lt;/button&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Enhanced Alerts</h3>
-            <div class="alert alert-success">
-                <span class="alert-icon">✓</span>
-                <div class="alert-content">Success! Your changes have been saved successfully.</div>
-                <button class="alert-close">×</button>
-            </div>
-            <div class="alert alert-warning">
-                <span class="alert-icon">⚠</span>
-                <div class="alert-content">Warning! Please review your settings before continuing.</div>
-                <button class="alert-close">×</button>
-            </div>
-            <div class="alert alert-error">
-                <span class="alert-icon">✕</span>
-                <div class="alert-content">Error! Something went wrong. Please try again.</div>
-                <button class="alert-close">×</button>
-            </div>
-            <div class="alert alert-info">
-                <span class="alert-icon">ℹ</span>
-                <div class="alert-content">Info: Here's some helpful information for you.</div>
-                <button class="alert-close">×</button>
-            </div>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Enhanced alerts with icons and close buttons --&gt;
-&lt;div class="alert alert-success"&gt;
-    &lt;span class="alert-icon"&gt;✓&lt;/span&gt;
-    &lt;div class="alert-content"&gt;Success! Your changes have been saved.&lt;/div&gt;
-    &lt;button class="alert-close"&gt;×&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;div class="alert alert-warning"&gt;
-    &lt;span class="alert-icon"&gt;⚠&lt;/span&gt;
-    &lt;div class="alert-content"&gt;Warning! Please review your settings.&lt;/div&gt;
-    &lt;button class="alert-close"&gt;×&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;div class="alert alert-error"&gt;
-    &lt;span class="alert-icon"&gt;✕&lt;/span&gt;
-    &lt;div class="alert-content"&gt;Error! Something went wrong.&lt;/div&gt;
-    &lt;button class="alert-close"&gt;×&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;div class="alert alert-info"&gt;
-    &lt;span class="alert-icon"&gt;ℹ&lt;/span&gt;
-    &lt;div class="alert-content"&gt;Info: Here's some helpful information.&lt;/div&gt;
-    &lt;button class="alert-close"&gt;×&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Interactive Cards</h3>
-            <div class="card tilt hover-glow">
-                <h4>Hover Effect</h4>
-                <p>This card has a hover glow effect with smooth animations. Now with tilt on mouse move!</p>
-            </div>
-            <div class="card tilt shimmer">
-                <h4>Shimmer Effect</h4>
-                <p>This card demonstrates the shimmer animation effect. Tilt enabled!</p>
-            </div>
-            <div class="card tilt glass-strong">
-                <h4>Strong Glass</h4>
-                <p>Enhanced glassmorphism effect with stronger blur and opacity. Try moving the mouse!</p>
-            </div>
-            <div class="card card--image tilt">
-                <img src="https://via.placeholder.com/400x200" alt="Card header image">
-                <div class="card-body">
-                    <h4>Image Card</h4>
-                    <p>Flexible card with header image for rich previews. Tilt effect applied!</p>
-                </div>
-            </div>
-            <div class="card card--loading">
-                <h4>Loading Card</h4>
-                <p>This card shows a shimmer loading placeholder.</p>
-            </div>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Interactive cards with effects --&gt;
-&lt;div class="card tilt hover-glow"&gt;
-    &lt;h4&gt;Hover Effect&lt;/h4&gt;
-    &lt;p&gt;This card has a hover glow effect with smooth animations.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class="card tilt shimmer"&gt;
-    &lt;h4&gt;Shimmer Effect&lt;/h4&gt;
-    &lt;p&gt;This card demonstrates the shimmer animation effect.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class="card tilt glass-strong"&gt;
-    &lt;h4&gt;Strong Glass&lt;/h4&gt;
-    &lt;p&gt;Enhanced glassmorphism effect with stronger blur.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class="card card--image tilt"&gt;
-    &lt;img src="image.jpg" alt="Card header image"&gt;
-    &lt;div class="card-body"&gt;
-        &lt;h4&gt;Image Card&lt;/h4&gt;
-        &lt;p&gt;Flexible card with header image for rich previews.&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Progress Bars</h3>
-            <label>Default Progress (75%)</label>
-            <div class="progress"><div class="progress-bar" data-progress="75"></div></div>
-            <label>Success Progress (100%)</label>
-            <div class="progress"><div class="progress-bar progress-bar-success" data-progress="100"></div></div>
-            <label>Warning Progress (45%)</label>
-            <div class="progress"><div class="progress-bar progress-bar-warning" data-progress="45"></div></div>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Progress bars with different states --&gt;
-&lt;label&gt;Default Progress (75%)&lt;/label&gt;
-&lt;div class="progress"&gt;
-    &lt;div class="progress-bar" data-progress="75"&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;label&gt;Success Progress (100%)&lt;/label&gt;
-&lt;div class="progress"&gt;
-    &lt;div class="progress-bar progress-bar-success" data-progress="100"&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;label&gt;Warning Progress (45%)&lt;/label&gt;
-&lt;div class="progress"&gt;
-    &lt;div class="progress-bar progress-bar-warning" data-progress="45"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Badges</h3>
-            <span class="badge badge-primary">Primary</span>
-            <span class="badge badge-secondary">Secondary</span>
-            <span class="badge badge-success">Success</span>
-            <span class="badge badge-warning">Warning</span>
-            <span class="badge badge-error">Error</span>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Badge variants --&gt;
-&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
-&lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;
-&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
-&lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;
-&lt;span class="badge badge-error"&gt;Error&lt;/span&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Interactive Components</h3>
-            <div class="dropdown">
-                <button class="dropdown-trigger">Options ▼</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Account</a></li>
-                    <hr class="dropdown-divider">
-                    <li><a class="dropdown-item" href="#">Help & Support</a></li>
-                    <li><a class="dropdown-item" href="#">Sign Out</a></li>
-                </ul>
-            </div>
-
-            <div class="component-spacer"></div>
-
-            <h4>Accordion (Semantic, No JS Needed)</h4>
-            <details class="accordion">
-                <summary>Accordion Item 1</summary>
-                <p>This is the content of the first accordion item.</p>
-            </details>
-            <details class="accordion">
-                <summary>Accordion Item 2</summary>
-                <p>This is the content of the second accordion item.</p>
-            </details>
-
-            <div class="component-spacer"></div>
-
-            <h4>Tooltips</h4>
-            <button data-tooltip="This is a tooltip!">Hover me for tooltip</button>
-
-            <div class="component-spacer"></div>
-
-            <h4>Modal Dialog</h4>
-            <button data-modal-target="#modal-demo">Open Demo Modal</button>
-            <button data-modal-target="#modal-small">Open Small Modal</button>
-            <button data-modal-target="#modal-large">Open Large Modal</button>
-            <button data-modal-target="#modal-fullscreen">Open Fullscreen Modal</button>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Interactive Components --&gt;
-&lt;!-- Dropdown Menu --&gt;
-&lt;div class="dropdown"&gt;
-    &lt;button class="dropdown-trigger"&gt;Options ▼&lt;/button&gt;
-    &lt;ul class="dropdown-menu"&gt;
-        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Profile Settings&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Account&lt;/a&gt;&lt;/li&gt;
-        &lt;hr class="dropdown-divider"&gt;
-        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Help &amp; Support&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Sign Out&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;!-- Accordion --&gt;
-&lt;details class="accordion"&gt;
-    &lt;summary&gt;Accordion Item 1&lt;/summary&gt;
-    &lt;p&gt;This is the content of the first accordion item.&lt;/p&gt;
-&lt;/details&gt;
-
-&lt;!-- Tooltip --&gt;
-&lt;button data-tooltip="This is a tooltip!"&gt;Hover me for tooltip&lt;/button&gt;
-
-&lt;!-- Modal Dialog --&gt;
-&lt;button data-modal-target="#my-modal"&gt;Open Modal&lt;/button&gt;
-&lt;div id="my-modal" class="modal"&gt;
-    &lt;div class="modal-content"&gt;
-        &lt;div class="modal-header"&gt;
-            &lt;h3 class="modal-title"&gt;Modal Title&lt;/h3&gt;
-            &lt;button class="modal-close"&gt;&amp;times;&lt;/button&gt;
-        &lt;/div&gt;
-        &lt;div class="modal-body"&gt;
-            &lt;p&gt;Modal content goes here&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Loading Elements</h3>
-            <div class="spinner"></div>
-            <p>Loading spinner with smooth animation</p>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Loading Spinner --&gt;
-&lt;div class="spinner"&gt;&lt;/div&gt;
-
-&lt;!-- Loading Card --&gt;
-&lt;div class="card card--loading"&gt;
-    &lt;h4&gt;Loading Card&lt;/h4&gt;
-    &lt;p&gt;This card shows a shimmer loading placeholder.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
+        <div class="hero-actions">
+            <a href="components.html" class="button-primary">Explore Components</a>
+            <a href="advanced.html" class="button-outline">Advanced Features</a>
+        </div>
     </section>
 
-    <!-- Form Elements -->
-    <section id="forms">
-        <h2>Form Elements</h2>
-        <form class="contact-form">
-            <label for="full-name">Full Name</label>
-            <input type="text" id="full-name" placeholder="Enter your full name">
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="your@email.com">
-
-            <label for="subject">Subject</label>
-            <select id="subject">
-                <option>Choose a subject</option>
-                <option>General Inquiry</option>
-                <option>Technical Support</option>
-                <option>Feedback</option>
-            </select>
-
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Enter your message here..."></textarea>
-
-            <label class="checkbox-label">
-                <input type="checkbox">
-                I agree to the terms and conditions
-            </label>
-
-            <button type="submit" class="button-primary">Send Message</button>
-        </form>
-
-        <details class="code-example">
-            <summary>Show Code Example</summary>
-            <pre><code>&lt;!-- Form Elements --&gt;
-&lt;form class="contact-form"&gt;
-    &lt;label for="full-name"&gt;Full Name&lt;/label&gt;
-    &lt;input type="text" id="full-name" placeholder="Enter your full name"&gt;
-
-    &lt;label for="email"&gt;Email Address&lt;/label&gt;
-    &lt;input type="email" id="email" placeholder="your@email.com"&gt;
-
-    &lt;label for="subject"&gt;Subject&lt;/label&gt;
-    &lt;select id="subject"&gt;
-        &lt;option&gt;Choose a subject&lt;/option&gt;
-        &lt;option&gt;General Inquiry&lt;/option&gt;
-        &lt;option&gt;Technical Support&lt;/option&gt;
-    &lt;/select&gt;
-
-    &lt;label for="message"&gt;Message&lt;/label&gt;
-    &lt;textarea id="message" placeholder="Enter your message here..."&gt;&lt;/textarea&gt;
-
-    &lt;label class="checkbox-label"&gt;
-        &lt;input type="checkbox"&gt;
-        I agree to the terms and conditions
-    &lt;/label&gt;
-
-    &lt;button type="submit" class="button-primary"&gt;Send Message&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-        </details>
-    </section>
-
-    <!-- Utility Classes & Advanced Features -->
-    <section id="utilities">
-        <h2>Utility Classes & Advanced Features</h2>
-
-        <article class="gradient-demo">
-            <h3>Glass Morphism Utilities</h3>
-            <p>Four distinct glassmorphism effects for different use cases. Hover over each to see the interactive glow effect:</p>
-            <div class="flex-center glass-utils-demo">
-                <div class="glass-subtle hover-glow tilt">
-                    <h4>Subtle Glass</h4>
-                    <p>Minimal blur for subtle backgrounds</p>
-                    <p>Use for: Secondary content areas</p>
-                    <p>rgba(255, 255, 255, 0.04)</p>
-                </div>
-                <div class="glass hover-glow tilt">
-                    <h4>Standard Glass</h4>
-                    <p>Balanced glassmorphism effect</p>
-                    <p>Use for: Cards, panels, modals</p>
-                    <p>rgba(255, 255, 255, 0.08)</p>
-                </div>
-                <div class="glass-strong hover-glow tilt">
-                    <h4>Strong Glass</h4>
-                    <p>Enhanced blur with stronger borders</p>
-                    <p>Use for: Navigation, headers</p>
-                    <p>rgba(255, 255, 255, 0.12)</p>
-                </div>
-                <div class="glass-intense hover-glow tilt">
-                    <h4>Intense Glass</h4>
-                    <p>Maximum blur for dramatic effect</p>
-                    <p>Use for: Hero sections, overlays</p>
-                    <p>rgba(255, 255, 255, 0.16)</p>
-                </div>
-            </div>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Glass Morphism Utilities --&gt;
-&lt;div class="glass-subtle"&gt;Subtle glass effect&lt;/div&gt;
-&lt;div class="glass"&gt;Standard glass effect&lt;/div&gt;
-&lt;div class="glass-strong"&gt;Strong glass effect&lt;/div&gt;
-&lt;div class="glass-intense"&gt;Intense glass effect&lt;/div&gt;
-
-&lt;!-- Combined with other effects --&gt;
-&lt;div class="card glass hover-glow tilt"&gt;
-    &lt;h4&gt;Interactive Glass Card&lt;/h4&gt;
-    &lt;p&gt;Combines glassmorphism with hover and tilt effects.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
-
-        <article class="gradient-demo">
-            <h3>Interactive Glass Demo</h3>
-            <p>Click the buttons below to see different glass effects applied to the demo card:</p>
-            <div class="button-demo">
-                <button onclick="changeGlassDemo('glass-subtle')">Subtle</button>
-                <button onclick="changeGlassDemo('glass')">Standard</button>
-                <button onclick="changeGlassDemo('glass-strong')">Strong</button>
-                <button onclick="changeGlassDemo('glass-intense')">Intense</button>
-            </div>
-            <div id="glass-demo-card" class="card glass hover-glow tilt">
-                <h4>Demo Card</h4>
-                <p>This card demonstrates the selected glass effect against the colorful background.</p>
-                <p id="glass-demo-info">Current: Standard Glass (60px blur)</p>
-            </div>
-        </article>
+    <!-- Semantic Components Section -->
+    <section id="semantic">
+        <h2>Semantic Components</h2>
+        <p class="section-intro">These components work with standard HTML elements and require minimal or no CSS classes. Perfect for getting started quickly with semantic, accessible markup.</p>
 
         <article>
-            <h3>Data Table</h3>
-            <div class="table-container">
-                <table id="feature-table">
-                    <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Status</th>
-                        <th>Priority</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Glassmorphism Effects</td>
-                        <td><span class="badge badge-success">Complete</span></td>
-                        <td>High</td>
-                    </tr>
-                    <tr>
-                        <td>Mobile Responsive</td>
-                        <td><span class="badge badge-success">Complete</span></td>
-                        <td>High</td>
-                    </tr>
-                    <tr>
-                        <td>Dark Theme</td>
-                        <td><span class="badge badge-success">Complete</span></td>
-                        <td>Medium</td>
-                    </tr>
-                    <tr>
-                        <td>Animations</td>
-                        <td><span class="badge badge-warning">In Progress</span></td>
-                        <td>Medium</td>
-                    </tr>
-                    <tr>
-                        <td>Accessibility Improvements</td>
-                        <td><span class="badge badge-success">Complete</span></td>
-                        <td>High</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagination" data-target-table="feature-table">
-                <select class="pagination-rows">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                </select>
-                <ul class="pagination-list">
-                    <li><button data-pagination="prev">‹</button></li>
-                    <li><button data-page="1">1</button></li>
-                    <li><button data-page="2">2</button></li>
-                    <li><button data-page="3">3</button></li>
-                    <li><button data-pagination="next">›</button></li>
-                </ul>
-            </div>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Data Table with Pagination --&gt;
-&lt;div class="table-container"&gt;
-    &lt;table id="feature-table"&gt;
-        &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;Feature&lt;/th&gt;
-            &lt;th&gt;Status&lt;/th&gt;
-            &lt;th&gt;Priority&lt;/th&gt;
-        &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Glassmorphism Effects&lt;/td&gt;
-            &lt;td&gt;&lt;span class="badge badge-success"&gt;Complete&lt;/span&gt;&lt;/td&gt;
-            &lt;td&gt;High&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;/tbody&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-
-&lt;!-- Pagination --&gt;
-&lt;div class="pagination" data-target-table="feature-table"&gt;
-    &lt;select class="pagination-rows"&gt;
-        &lt;option value="5"&gt;5&lt;/option&gt;
-        &lt;option value="10"&gt;10&lt;/option&gt;
-        &lt;option value="20"&gt;20&lt;/option&gt;
-    &lt;/select&gt;
-    &lt;ul class="pagination-list"&gt;
-        &lt;li&gt;&lt;button data-pagination="prev"&gt;‹&lt;/button&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;button data-page="1"&gt;1&lt;/button&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;button data-page="2"&gt;2&lt;/button&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;button data-pagination="next"&gt;›&lt;/button&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
-            </details>
-        </article>
-    </section>
-
-    <!-- Typography & Semantic Elements (moved down) -->
-    <section id="typography">
-        <h2>Typography & Semantic Elements</h2>
-
-        <article>
-            <h3>REM Usage Audit</h3>
-            <p>All typography uses rem for sizing. This maintains accessibility for users who change their browser font size. The body element has a size of 1.15rem which equates to 18.4px for paragraph text, following Simple.css sizing approach.</p>
+            <h3>Typography & Text Elements</h3>
+            <p>All typography uses rem for sizing to maintain accessibility for users who change their browser font size. The body element has a size of 1.15rem (18.4px) following Simple.css sizing approach.</p>
+            
             <div class="heading-demo">
-                <h1>Heading 1 3rem</h1>
-                <h2>Heading 2 2.6rem</h2>
-                <h3>Heading 3 2rem</h3>
-                <h4>Heading 4 1.44rem</h4>
-                <h5>Heading 5 1.15rem</h5>
-                <h6>Heading 6 0.96rem</h6>
+                <h1>Heading 1 (3rem)</h1>
+                <h2>Heading 2 (2.6rem)</h2>
+                <h3>Heading 3 (2rem)</h3>
+                <h4>Heading 4 (1.44rem)</h4>
+                <h5>Heading 5 (1.15rem)</h5>
+                <h6>Heading 6 (0.96rem)</h6>
             </div>
-            <p>Paragraph text: 1.15rem (18.4px) - This matches Simple.css sizing for optimal readability and accessibility compliance.</p>
 
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Typography Headings --&gt;
-&lt;h1&gt;Heading 1 3rem&lt;/h1&gt;
-&lt;h2&gt;Heading 2 2.6rem&lt;/h2&gt;
-&lt;h3&gt;Heading 3 2rem&lt;/h3&gt;
-&lt;h4&gt;Heading 4 1.44rem&lt;/h4&gt;
-&lt;h5&gt;Heading 5 1.15rem&lt;/h5&gt;
-&lt;h6&gt;Heading 6 0.96rem&lt;/h6&gt;
+            <h4>Text Formatting</h4>
+            <p>This paragraph demonstrates various text formatting options:</p>
+            <p><strong>Bold text</strong> for emphasis, <em>italic text</em> for subtle emphasis, <u>underlined text</u> for highlighting, and <mark>marked text</mark> for important information.</p>
+            <p><small>Small text for fine print</small> and <del>deleted text</del> with <ins>inserted text</ins> for showing changes.</p>
 
-&lt;!-- Paragraph Text --&gt;
-&lt;p&gt;Regular paragraph text with automatic styling.&lt;/p&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Text Elements</h3>
-            <p>This is a regular paragraph with <strong>strong text</strong> and <em>emphasized text</em>. You can also use <a href="#">links with hover effects</a> that have beautiful animations.</p>
-            <blockquote>
-                "The future belongs to those who believe in the beauty of their dreams. Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs
-            </blockquote>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Text Elements --&gt;
-&lt;p&gt;Regular paragraph with &lt;strong&gt;strong text&lt;/strong&gt; and &lt;em&gt;emphasized text&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Links with hover effects: &lt;a href="#"&gt;Beautiful animated links&lt;/a&gt;&lt;/p&gt;
-
-&lt;!-- Blockquote --&gt;
-&lt;blockquote&gt;
-    "Design is not just what it looks like and feels like. Design is how it works."
-&lt;/blockquote&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Lists</h3>
+            <h4>Lists</h4>
             <ul>
-                <li>Unordered list item with custom arrow</li>
-                <li>Second item with glassmorphism styling</li>
-                <li>Third item demonstrating semantic HTML</li>
+                <li>Unordered list with custom bullet styling</li>
+                <li>Glassmorphism effects applied automatically</li>
+                <li>No classes needed for basic styling</li>
+                <li>Nested lists work seamlessly:
+                    <ul>
+                        <li>Nested item one</li>
+                        <li>Nested item two</li>
+                    </ul>
+                </li>
             </ul>
+
             <ol>
                 <li>Ordered list with custom numbering</li>
                 <li>Futuristic styling applied automatically</li>
@@ -700,17 +114,21 @@
 
             <details class="code-example">
                 <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Lists --&gt;
+                <pre><code>&lt;!-- Typography Examples --&gt;
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;Highlighted text&lt;/mark&gt; and &lt;small&gt;small text&lt;/small&gt;&lt;/p&gt;
+
+&lt;!-- Lists --&gt;
 &lt;ul&gt;
-    &lt;li&gt;Unordered list item with custom arrow&lt;/li&gt;
-    &lt;li&gt;Second item with glassmorphism styling&lt;/li&gt;
-    &lt;li&gt;Third item demonstrating semantic HTML&lt;/li&gt;
+    &lt;li&gt;Unordered list item&lt;/li&gt;
+    &lt;li&gt;Another item&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
-    &lt;li&gt;Ordered list with custom numbering&lt;/li&gt;
-    &lt;li&gt;Futuristic styling applied automatically&lt;/li&gt;
-    &lt;li&gt;No classes needed for basic styling&lt;/li&gt;
+    &lt;li&gt;Ordered list item&lt;/li&gt;
+    &lt;li&gt;Another item&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
             </details>
         </article>
@@ -730,7 +148,7 @@ function initFramework() {
 
             <details class="code-example">
                 <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Code Elements --&gt;
+                <pre><code>&lt;!-- Inline Code --&gt;
 &lt;p&gt;Inline code: &lt;code&gt;const framework = 'simple-morph';&lt;/code&gt;&lt;/p&gt;
 
 &lt;!-- Code Block --&gt;
@@ -745,6 +163,124 @@ function initFramework() {
 }&lt;/code&gt;&lt;/pre&gt;</code></pre>
             </details>
         </article>
+
+        <article>
+            <h3>Basic Buttons</h3>
+            <p>Standard HTML buttons with automatic styling. Add optional classes for different variants:</p>
+            <div class="button-demo">
+                <button>Default Button</button>
+                <button class="button-primary">Primary Button</button>
+                <button class="button-secondary">Secondary Button</button>
+                <button class="button-success">Success Button</button>
+                <button class="button-warning">Warning Button</button>
+                <button class="button-error">Error Button</button>
+                <button class="button-outline">Outline Button</button>
+                <button disabled>Disabled Button</button>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Default button (no classes needed) --&gt;
+&lt;button&gt;Default Button&lt;/button&gt;
+
+&lt;!-- Button variants with optional classes --&gt;
+&lt;button class="button-primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="button-secondary"&gt;Secondary Button&lt;/button&gt;
+&lt;button class="button-success"&gt;Success Button&lt;/button&gt;
+&lt;button class="button-warning"&gt;Warning Button&lt;/button&gt;
+&lt;button class="button-error"&gt;Error Button&lt;/button&gt;
+&lt;button class="button-outline"&gt;Outline Button&lt;/button&gt;
+&lt;button disabled&gt;Disabled Button&lt;/button&gt;</code></pre>
+            </details>
+        </article>
+
+        <article>
+            <h3>Basic Forms</h3>
+            <p>Standard HTML form elements with automatic styling:</p>
+            <form class="demo-form">
+                <label for="demo-name">Full Name</label>
+                <input type="text" id="demo-name" placeholder="Enter your full name">
+
+                <label for="demo-email">Email Address</label>
+                <input type="email" id="demo-email" placeholder="your@email.com">
+
+                <label for="demo-subject">Subject</label>
+                <select id="demo-subject">
+                    <option>Choose a subject</option>
+                    <option>General Inquiry</option>
+                    <option>Technical Support</option>
+                    <option>Feedback</option>
+                </select>
+
+                <label for="demo-message">Message</label>
+                <textarea id="demo-message" placeholder="Enter your message here..."></textarea>
+
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    I agree to the terms and conditions
+                </label>
+
+                <button type="submit" class="button-primary">Send Message</button>
+            </form>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Basic Form Elements --&gt;
+&lt;form&gt;
+    &lt;label for="name"&gt;Full Name&lt;/label&gt;
+    &lt;input type="text" id="name" placeholder="Enter your name"&gt;
+
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="email" placeholder="your@email.com"&gt;
+
+    &lt;label for="subject"&gt;Subject&lt;/label&gt;
+    &lt;select id="subject"&gt;
+        &lt;option&gt;Choose a subject&lt;/option&gt;
+        &lt;option&gt;General Inquiry&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label for="message"&gt;Message&lt;/label&gt;
+    &lt;textarea id="message" placeholder="Your message..."&gt;&lt;/textarea&gt;
+
+    &lt;label class="checkbox-label"&gt;
+        &lt;input type="checkbox"&gt;
+        I agree to the terms
+    &lt;/label&gt;
+
+    &lt;button type="submit" class="button-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </details>
+        </article>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quick-start">
+        <h2>Quick Start</h2>
+        <p>Get started with Simple Morph in seconds. Just include the CSS file and start writing semantic HTML:</p>
+        
+        <pre><code>&lt;!-- Include Simple Morph CSS --&gt;
+&lt;link rel="stylesheet" href="simple-morph.css"&gt;
+
+&lt;!-- Write semantic HTML --&gt;
+&lt;main&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;p&gt;Beautiful styling applied automatically!&lt;/p&gt;
+    &lt;button&gt;Click me&lt;/button&gt;
+&lt;/main&gt;</code></pre>
+
+        <div class="next-steps">
+            <h3>Next Steps</h3>
+            <div class="step-grid">
+                <a href="components.html" class="step-card">
+                    <h4>🧩 Explore Components</h4>
+                    <p>Discover enhanced UI components like cards, navigation, and interactive elements.</p>
+                </a>
+                <a href="advanced.html" class="step-card">
+                    <h4>⚡ Advanced Features</h4>
+                    <p>Unlock powerful glass effects, animations, and complex interactive components.</p>
+                </a>
+            </div>
+        </div>
     </section>
 </main>
 
@@ -757,84 +293,5 @@ function initFramework() {
         <a href="https://simplecss.org" target="_blank" rel="noopener noreferrer">Inspired by Simple.css</a>
     </div>
 </footer>
-
-<!-- Modals -->
-<div class="modal" id="modal-demo" role="dialog" aria-labelledby="modal-demo-title">
-    <div class="modal-content glass-intense tilt">
-        <header class="modal-header">
-            <h2 id="modal-demo-title">Demo Modal</h2>
-            <button class="modal-close button-outline" aria-label="Close modal">×</button>
-        </header>
-        <div class="modal-body">
-            <p>This is a demonstration of the modal dialog component with enhanced glassmorphism effects, glow animations, and a more immersive futuristic feel.</p>
-            <p>Modals can contain any HTML content including forms, images, or other components. The backdrop now has stronger blur and subtle gradient for better integration with the theme.</p>
-            <p><strong>Tip:</strong> You can close this modal by clicking the X button, pressing Escape, or clicking outside the modal.</p>
-            <div class="card">
-                <h4>Example Card Inside Modal</h4>
-                <p>This shows how components nest within modals seamlessly.</p>
-            </div>
-        </div>
-        <footer class="modal-footer">
-            <button class="modal-close button-secondary">Cancel</button>
-            <button class="button-primary">Confirm</button>
-        </footer>
-    </div>
-</div>
-
-<div class="modal modal--small" id="modal-small" role="dialog" aria-labelledby="modal-small-title">
-    <div class="modal-content glass-intense tilt">
-        <header class="modal-header">
-            <h2 id="modal-small-title">Small Modal</h2>
-            <button class="modal-close button-outline" aria-label="Close modal">×</button>
-        </header>
-        <div class="modal-body">
-            <p>This is a compact modal ideal for quick confirmations. Now with enhanced glass effects and glow.</p>
-        </div>
-        <footer class="modal-footer">
-            <button class="modal-close button-secondary">Cancel</button>
-            <button class="button-primary">Okay</button>
-        </footer>
-    </div>
-</div>
-
-<div class="modal modal--large" id="modal-large" role="dialog" aria-labelledby="modal-large-title">
-    <div class="modal-content glass-intense tilt">
-        <header class="modal-header">
-            <h2 id="modal-large-title">Large Modal</h2>
-            <button class="modal-close button-outline" aria-label="Close modal">×</button>
-        </header>
-        <div class="modal-body">
-            <p>This wider modal gives more room for forms or media. Updated with stronger thematic integration.</p>
-            <form>
-                <label for="example-input">Example Input</label>
-                <input type="text" id="example-input" placeholder="Type something...">
-                <button type="submit" class="button-primary">Submit</button>
-            </form>
-        </div>
-        <footer class="modal-footer">
-            <button class="modal-close button-secondary">Dismiss</button>
-        </footer>
-    </div>
-</div>
-
-<div class="modal modal--fullscreen" id="modal-fullscreen" role="dialog" aria-labelledby="modal-fullscreen-title">
-    <div class="modal-content glass-intense tilt">
-        <header class="modal-header">
-            <h2 id="modal-fullscreen-title">Fullscreen Modal</h2>
-            <button class="modal-close button-outline" aria-label="Close modal">×</button>
-        </header>
-        <div class="modal-body flex-center">
-            <p>This modal covers the whole viewport for immersive experiences. Enhanced with full-screen glassmorphism, subtle glow, and theme-consistent styling.</p>
-            <div class="card tilt">
-                <h3>Immersive Content</h3>
-                <p>Enjoy the expansive view with futuristic effects. The background blur is intensified for better focus.</p>
-                <button class="button-primary">Explore More</button>
-            </div>
-        </div>
-        <footer class="modal-footer">
-            <button class="modal-close button-secondary">Close</button>
-        </footer>
-    </div>
-</div>
 </body>
 </html>
