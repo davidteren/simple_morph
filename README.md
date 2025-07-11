@@ -8,7 +8,7 @@ A modern CSS framework inspired by [Simple.css](https://simplecss.org) with a fu
 
 > **⚠️ Alpha Version Warning**: This is an alpha release (v0.0.1-alpha). Breaking changes may occur between versions. Use with caution in production environments.
 
-**[🚀 View Live Demo](https://davidteren.github.io/simple-morph/)**
+**[🚀 View Live Demo](https://davidteren.github.io/simple_morph/)**
 
 ![Simple Morph](simple_morph.png)
 
