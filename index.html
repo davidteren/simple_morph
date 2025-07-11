@@ -95,6 +95,34 @@
                     <p>Settings and configuration options would be displayed in this tab.</p>
                 </div>
             </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Navigation Components --&gt;
+&lt;!-- Breadcrumbs --&gt;
+&lt;nav class="breadcrumb"&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Components&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="current"&gt;Navigation&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;!-- Tabs --&gt;
+&lt;div class="tabs"&gt;
+    &lt;div class="tab-buttons"&gt;
+        &lt;button class="tab-button active" data-tab="overview"&gt;Overview&lt;/button&gt;
+        &lt;button class="tab-button" data-tab="features"&gt;Features&lt;/button&gt;
+        &lt;button class="tab-button" data-tab="settings"&gt;Settings&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-content active" data-tab-content="overview"&gt;
+        &lt;p&gt;Overview tab content with smooth transitions.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-content" data-tab-content="features"&gt;
+        &lt;p&gt;Features tab content goes here.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </article>
 
         <article>
@@ -317,12 +345,63 @@
             <button data-modal-target="#modal-small">Open Small Modal</button>
             <button data-modal-target="#modal-large">Open Large Modal</button>
             <button data-modal-target="#modal-fullscreen">Open Fullscreen Modal</button>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Interactive Components --&gt;
+&lt;!-- Dropdown Menu --&gt;
+&lt;div class="dropdown"&gt;
+    &lt;button class="dropdown-trigger"&gt;Options ▼&lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Profile Settings&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Account&lt;/a&gt;&lt;/li&gt;
+        &lt;hr class="dropdown-divider"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Help &amp; Support&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Sign Out&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Accordion --&gt;
+&lt;details class="accordion"&gt;
+    &lt;summary&gt;Accordion Item 1&lt;/summary&gt;
+    &lt;p&gt;This is the content of the first accordion item.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;!-- Tooltip --&gt;
+&lt;button data-tooltip="This is a tooltip!"&gt;Hover me for tooltip&lt;/button&gt;
+
+&lt;!-- Modal Dialog --&gt;
+&lt;button data-modal-target="#my-modal"&gt;Open Modal&lt;/button&gt;
+&lt;div id="my-modal" class="modal"&gt;
+    &lt;div class="modal-content"&gt;
+        &lt;div class="modal-header"&gt;
+            &lt;h3 class="modal-title"&gt;Modal Title&lt;/h3&gt;
+            &lt;button class="modal-close"&gt;&amp;times;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-body"&gt;
+            &lt;p&gt;Modal content goes here&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </article>
 
         <article>
             <h3>Loading Elements</h3>
             <div class="spinner"></div>
             <p>Loading spinner with smooth animation</p>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Loading Spinner --&gt;
+&lt;div class="spinner"&gt;&lt;/div&gt;
+
+&lt;!-- Loading Card --&gt;
+&lt;div class="card card--loading"&gt;
+    &lt;h4&gt;Loading Card&lt;/h4&gt;
+    &lt;p&gt;This card shows a shimmer loading placeholder.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </article>
     </section>
 
@@ -354,6 +433,35 @@
 
             <button type="submit" class="button-primary">Send Message</button>
         </form>
+
+        <details class="code-example">
+            <summary>Show Code Example</summary>
+            <pre><code>&lt;!-- Form Elements --&gt;
+&lt;form class="contact-form"&gt;
+    &lt;label for="full-name"&gt;Full Name&lt;/label&gt;
+    &lt;input type="text" id="full-name" placeholder="Enter your full name"&gt;
+
+    &lt;label for="email"&gt;Email Address&lt;/label&gt;
+    &lt;input type="email" id="email" placeholder="your@email.com"&gt;
+
+    &lt;label for="subject"&gt;Subject&lt;/label&gt;
+    &lt;select id="subject"&gt;
+        &lt;option&gt;Choose a subject&lt;/option&gt;
+        &lt;option&gt;General Inquiry&lt;/option&gt;
+        &lt;option&gt;Technical Support&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label for="message"&gt;Message&lt;/label&gt;
+    &lt;textarea id="message" placeholder="Enter your message here..."&gt;&lt;/textarea&gt;
+
+    &lt;label class="checkbox-label"&gt;
+        &lt;input type="checkbox"&gt;
+        I agree to the terms and conditions
+    &lt;/label&gt;
+
+    &lt;button type="submit" class="button-primary"&gt;Send Message&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        </details>
     </section>
 
     <!-- Utility Classes & Advanced Features -->
@@ -389,6 +497,21 @@
                     <p>rgba(255, 255, 255, 0.16)</p>
                 </div>
             </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Glass Morphism Utilities --&gt;
+&lt;div class="glass-subtle"&gt;Subtle glass effect&lt;/div&gt;
+&lt;div class="glass"&gt;Standard glass effect&lt;/div&gt;
+&lt;div class="glass-strong"&gt;Strong glass effect&lt;/div&gt;
+&lt;div class="glass-intense"&gt;Intense glass effect&lt;/div&gt;
+
+&lt;!-- Combined with other effects --&gt;
+&lt;div class="card glass hover-glow tilt"&gt;
+    &lt;h4&gt;Interactive Glass Card&lt;/h4&gt;
+    &lt;p&gt;Combines glassmorphism with hover and tilt effects.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </article>
 
         <article class="gradient-demo">
@@ -461,6 +584,44 @@
                     <li><button data-pagination="next">›</button></li>
                 </ul>
             </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Data Table with Pagination --&gt;
+&lt;div class="table-container"&gt;
+    &lt;table id="feature-table"&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Feature&lt;/th&gt;
+            &lt;th&gt;Status&lt;/th&gt;
+            &lt;th&gt;Priority&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Glassmorphism Effects&lt;/td&gt;
+            &lt;td&gt;&lt;span class="badge badge-success"&gt;Complete&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;High&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- Pagination --&gt;
+&lt;div class="pagination" data-target-table="feature-table"&gt;
+    &lt;select class="pagination-rows"&gt;
+        &lt;option value="5"&gt;5&lt;/option&gt;
+        &lt;option value="10"&gt;10&lt;/option&gt;
+        &lt;option value="20"&gt;20&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;ul class="pagination-list"&gt;
+        &lt;li&gt;&lt;button data-pagination="prev"&gt;‹&lt;/button&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button data-page="1"&gt;1&lt;/button&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button data-page="2"&gt;2&lt;/button&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button data-pagination="next"&gt;›&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </article>
     </section>
 
@@ -480,6 +641,20 @@
                 <h6>Heading 6 0.96rem</h6>
             </div>
             <p>Paragraph text: 1.15rem (18.4px) - This matches Simple.css sizing for optimal readability and accessibility compliance.</p>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Typography Headings --&gt;
+&lt;h1&gt;Heading 1 3rem&lt;/h1&gt;
+&lt;h2&gt;Heading 2 2.6rem&lt;/h2&gt;
+&lt;h3&gt;Heading 3 2rem&lt;/h3&gt;
+&lt;h4&gt;Heading 4 1.44rem&lt;/h4&gt;
+&lt;h5&gt;Heading 5 1.15rem&lt;/h5&gt;
+&lt;h6&gt;Heading 6 0.96rem&lt;/h6&gt;
+
+&lt;!-- Paragraph Text --&gt;
+&lt;p&gt;Regular paragraph text with automatic styling.&lt;/p&gt;</code></pre>
+            </details>
         </article>
 
         <article>
@@ -488,6 +663,18 @@
             <blockquote>
                 "The future belongs to those who believe in the beauty of their dreams. Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs
             </blockquote>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Text Elements --&gt;
+&lt;p&gt;Regular paragraph with &lt;strong&gt;strong text&lt;/strong&gt; and &lt;em&gt;emphasized text&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Links with hover effects: &lt;a href="#"&gt;Beautiful animated links&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- Blockquote --&gt;
+&lt;blockquote&gt;
+    "Design is not just what it looks like and feels like. Design is how it works."
+&lt;/blockquote&gt;</code></pre>
+            </details>
         </article>
 
         <article>
@@ -502,6 +689,22 @@
                 <li>Futuristic styling applied automatically</li>
                 <li>No classes needed for basic styling</li>
             </ol>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Lists --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Unordered list item with custom arrow&lt;/li&gt;
+    &lt;li&gt;Second item with glassmorphism styling&lt;/li&gt;
+    &lt;li&gt;Third item demonstrating semantic HTML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Ordered list with custom numbering&lt;/li&gt;
+    &lt;li&gt;Futuristic styling applied automatically&lt;/li&gt;
+    &lt;li&gt;No classes needed for basic styling&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            </details>
         </article>
 
         <article>
@@ -516,6 +719,23 @@ function initFramework() {
     philosophy: 'semantic-first'
   };
 }</code></pre>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Code Elements --&gt;
+&lt;p&gt;Inline code: &lt;code&gt;const framework = 'simple-morph';&lt;/code&gt;&lt;/p&gt;
+
+&lt;!-- Code Block --&gt;
+&lt;pre&gt;&lt;code&gt;// Code block example
+function initFramework() {
+  console.log('🚀 Simple Morph CSS Framework');
+  return {
+    theme: 'dark',
+    style: 'glassmorphism',
+    philosophy: 'semantic-first'
+  };
+}&lt;/code&gt;&lt;/pre&gt;</code></pre>
+            </details>
         </article>
     </section>
 </main>
