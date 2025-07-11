@@ -1745,57 +1745,18 @@ select {
   position: relative;
 }
 
-/* GitHub Link in Navigation */
-.github-link {
-  display: flex !important;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius-small);
-  padding: 0.5rem 0.75rem !important;
-  transition: all var(--transition-normal) ease;
-  font-weight: 500;
-  font-size: 0.875rem;
+/* GitHub Buttons Widget Integration */
+.github-button {
+  /* Let the GitHub buttons widget handle its own styling */
+  /* Add minimal integration styling if needed */
 }
 
-.github-link:hover {
-  background: var(--glass-bg-strong) !important;
-  border-color: var(--accent-primary);
-  color: var(--accent-primary) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.2);
-}
+/* GitHub buttons widget handles its own hover states */
 
-.github-link svg {
-  width: 16px;
-  height: 16px;
-  transition: transform var(--transition-normal) ease;
-}
-
-.github-link:hover svg {
-  transform: scale(1.1);
-}
-
-/* Mobile GitHub link styling */
+/* Mobile GitHub button styling - let widget handle it */
 @media (max-width: 768px) {
-  .mobile-menu .github-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  .mobile-menu .github-button {
     margin-top: var(--spacing-md);
-    background: var(--accent-primary);
-    color: var(--text-primary) !important;
-    border: none;
-    font-weight: 600;
-  }
-
-  .mobile-menu .github-link:hover {
-    background: var(--accent-secondary);
-    transform: none;
-    box-shadow: none;
   }
 }
 
@@ -1852,41 +1813,20 @@ select {
   flex-wrap: wrap;
 }
 
-.footer-github-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--accent-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all var(--transition-normal) ease;
-}
-
-.footer-github-link:hover {
-  color: var(--accent-secondary);
-  transform: translateY(-1px);
-}
-
-.footer-github-link svg {
-  transition: transform var(--transition-normal) ease;
-}
-
-.footer-github-link:hover svg {
-  transform: scale(1.1);
-}
+/* Footer GitHub button - handled by widget */
 
 .footer-divider {
   color: var(--text-muted);
   font-weight: bold;
 }
 
-.footer-links a:not(.footer-github-link) {
+.footer-links a:not(.github-button) {
   color: var(--text-muted);
   text-decoration: none;
   transition: color var(--transition-normal) ease;
 }
 
-.footer-links a:not(.footer-github-link):hover {
+.footer-links a:not(.github-button):hover {
   color: var(--text-secondary);
 }
 
