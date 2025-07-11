@@ -45,7 +45,7 @@ Experience all the features, components, and interactive elements in action. The
 <script src="https://davidteren.github.io/simple-morph/simple-morph.js"></script>
 ```
 
-> **Note:** The CSS filename includes a hash for cache busting. Check the [live demo](https://davidteren.github.io/simple-morph/) source for the current filename.
+> **Note:** The CSS filename includes a hash for cache busting. Check the [live demo](https://davidteren.github.io/simple_morph/) source for the current filename.
 
 ### Download
 1. Download `simple-morph.css` and `simple-morph.js`

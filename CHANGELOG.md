@@ -56,7 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Documentation
 - Complete README.md with usage examples
-- Live demo at https://davidteren.github.io/simple-morph/
+- Live demo at https://davidteren.github.io/simple_morph/
 - Code examples for all components
 - Installation and quick start guide
 - Browser compatibility information
