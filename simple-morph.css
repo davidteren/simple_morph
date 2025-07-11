@@ -1994,11 +1994,18 @@ select {
 /* Navigation Active States */
 .navbar-nav a.active {
   color: var(--accent-primary);
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  border-radius: var(--border-radius-small);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.navbar-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  border-radius: 1px;
 }
 
 .mobile-menu a.active {

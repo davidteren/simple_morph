@@ -21,6 +21,7 @@
     // Initialize the framework
     init() {
       this.setupMobileMenu();
+      this.setupNavigationActiveStates();
       this.setupSmoothScrolling();
       this.setupAnimations();
       this.setupInteractiveElements();
@@ -65,6 +66,27 @@
         if (e.target === mobileMenu) {
           mobileMenu.classList.remove('open');
           document.body.style.overflow = '';
+        }
+      });
+    },
+
+    // Set active navigation state based on current page
+    setupNavigationActiveStates() {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.split('/').pop() || 'index.html';
+
+      // Remove any existing active classes
+      document.querySelectorAll('.navbar-nav a, .mobile-menu a').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      // Add active class to current page links
+      document.querySelectorAll('.navbar-nav a, .mobile-menu a').forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage ||
+            (currentPage === '' && linkHref === 'index.html') ||
+            (currentPage === 'index.html' && linkHref === 'index.html')) {
+          link.classList.add('active');
         }
       });
     },
