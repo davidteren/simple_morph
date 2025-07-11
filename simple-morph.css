@@ -173,12 +173,71 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
   border-radius: var(--border-radius-small);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.6rem; margin-top: 3rem; }
-h3 { font-size: 2rem; margin-top: 3rem; margin-bottom: var(--spacing-md); }
-h4 { font-size: 1.44rem; }
-h5 { font-size: 1.15rem; }
-h6 { font-size: 0.96rem; }
+h1 {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-lg);
+}
+h2 {
+  font-size: 2.6rem;
+  margin-top: 3rem;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+h3 {
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+h4 {
+  font-size: 1.44rem;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.15rem;
+  margin-bottom: var(--spacing-sm);
+}
+h6 {
+  font-size: 0.96rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Enhanced section headers */
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-secondary);
+  border-radius: 1px;
+}
+
+/* Component section headers */
+article h3 {
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+article h4 {
+  color: var(--text-primary);
+  text-shadow: 0 0 8px rgba(74, 158, 255, 0.3);
+}
 
 @media only screen and (width <= 720px) {
   h1 { font-size: 2.5rem; }
