@@ -1904,6 +1904,50 @@ select {
   flex-wrap: wrap;
 }
 
+/* Hero Button Styling */
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-normal) ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 160px;
+  text-align: center;
+}
+
+.hero-button--primary {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--glass-shadow);
+}
+
+.hero-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow-strong);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero-button--outline {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-primary);
+  border: 1px solid rgba(74, 158, 255, 0.3);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.hero-button--outline:hover {
+  background: rgba(74, 158, 255, 0.1);
+  border-color: rgba(74, 158, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow);
+}
+
 .github-hero-link {
   display: flex;
   align-items: center;
