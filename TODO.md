@@ -61,15 +61,17 @@ This document tracks known issues and planned improvements for the Nebula Everyw
   - Technical: Add `list-style: none` to appropriate selectors
 
 ### Effects & Animations
-- [ ] **Shimmer effect not working**
+- [x] **Shimmer effect not working** ✅ FIXED
   - Issue: `.shimmer` class animation not functioning
   - Impact: Missing visual enhancement
-  - Technical: Check CSS keyframes and animation properties
+  - Technical: Enhanced with dual-layer animation and improved timing
+  - Status: Shimmer effect now highly visible with smooth animations
 
-- [ ] **Strong glass effect not working**
+- [x] **Strong glass effect not working** ✅ FIXED
   - Issue: `.glass-strong` utility class not applying proper effects
   - Impact: Reduced glassmorphism visual appeal
-  - Technical: Review backdrop-filter and transparency values
+  - Technical: Enhanced backdrop-filter, added gradient overlays and multiple shadows
+  - Status: Glass effects now prominent with cross-browser compatibility
 
 - [ ] **Header image not displaying in image card component**
   - Issue: Card component images not loading or displaying
