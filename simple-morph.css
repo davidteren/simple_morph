@@ -560,10 +560,32 @@ button:hover::before, .button:hover::before {
   text-decoration: none;
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.25rem; /* Increased from 1.1rem for better prominence */
   margin: 0;
   padding: 0;
   height: 100%;
+  position: relative;
+  transition: color var(--transition-normal) ease;
+}
+
+/* Add hover effect and underline for navbar brand */
+.navbar-brand:hover {
+  color: var(--text-primary);
+}
+
+.navbar-brand::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width var(--transition-normal) ease;
+}
+
+.navbar-brand:hover::after {
+  width: 100%;
 }
 
 .navbar-logo {
@@ -636,7 +658,7 @@ button:hover::before, .button:hover::before {
 .navbar-nav a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -2px; /* Moved closer to text for tighter spacing */
   left: 0;
   width: 0;
   height: 2px;
