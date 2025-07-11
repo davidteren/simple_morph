@@ -355,8 +355,14 @@ body > footer {
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    background-position: 200% 0;
+    transform: translateX(100%);
+  }
 }
 
 @keyframes modalGlow {
@@ -823,8 +829,12 @@ pre code {
 
 /* Glassmorphism Utility Classes */
 .glass {
+  /* Fallback for browsers without backdrop-filter support */
+  background: rgba(255, 255, 255, 0.12);
+  /* Modern glassmorphism */
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.5);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.5);
   border: var(--border-width) solid var(--glass-border);
   border-radius: var(--border-radius);
   box-shadow: var(--glass-shadow);
@@ -834,16 +844,44 @@ pre code {
   min-height: 150px;
 }
 
+/* Enhanced glass effect for supported browsers */
+@supports (backdrop-filter: blur(1px)) {
+  .glass {
+    background: var(--glass-bg);
+  }
+}
+
 .glass-strong {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur));
-  border: var(--border-width) solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(calc(var(--glass-blur) * 1.5)) saturate(1.8);
+  border: var(--border-width) solid rgba(255, 255, 255, 0.3);
   border-radius: var(--border-radius);
-  box-shadow: var(--glass-shadow-strong);
+  box-shadow:
+    var(--glass-shadow-strong),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(74, 158, 255, 0.1);
   padding: var(--spacing-md);
   text-align: center;
   width: 200px;
   min-height: 150px;
+  position: relative;
+}
+
+.glass-strong::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(74, 158, 255, 0.05) 100%
+  );
+  border-radius: var(--border-radius);
+  pointer-events: none;
 }
 
 .glass-subtle {
@@ -900,6 +938,27 @@ pre code {
 .shimmer {
   position: relative;
   overflow: hidden;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    transparent 100%
+  );
+  animation: shimmer 2.5s ease-in-out infinite;
+  z-index: 1;
 }
 
 .shimmer::after {
@@ -907,10 +966,16 @@ pre code {
   position: absolute;
   top: 0;
   left: -100%;
-  width: 100%;
+  width: 200%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shimmer 2s linear infinite;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(74, 158, 255, 0.1) 50%,
+    transparent 70%
+  );
+  animation: shimmer 3s ease-in-out infinite reverse;
+  z-index: 2;
 }
 
 /* Tilt class */
