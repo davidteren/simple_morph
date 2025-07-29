@@ -1,5 +1,5 @@
-/* Simple Morph Core JavaScript - Essential Features Only */
-/* Version 0.0.1-beta-core - Released 2025-07-30 */
+/* Simple Morph JavaScript - Essential Features Only */
+/* Version 0.0.1-beta - Released 2025-07-30 */
 /* Repository: https://github.com/davidteren/simple_morph */
 
 (function() {
@@ -21,7 +21,7 @@
       // Expose public API
       this.exposeAPI();
       
-      console.log('🚀 Simple Morph Core initialized');
+      console.log('🚀 Simple Morph initialized');
     },
 
     // Mobile menu functionality
