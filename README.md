@@ -39,17 +39,12 @@ Experience all the features, components, and interactive elements in action. The
 
 ## 🚀 Quick Start
 
-### CDN (GitHub Pages)
-```html
-<link rel="stylesheet" href="https://davidteren.github.io/simple-morph/assets/index-BFDMDPNU.css">
-<script src="https://davidteren.github.io/simple-morph/simple-morph.js"></script>
-```
+**Simple Morph is truly simple** - just copy two files and start building! No build process, no dependencies, no configuration required.
 
-> **Note:** The CSS filename includes a hash for cache busting. Check the [live demo](https://davidteren.github.io/simple_morph/) source for the current filename.
-
-### Download
-1. Download `simple-morph.css` and `simple-morph.js`
-2. Include them in your HTML:
+### 📁 Copy Two Files Method (Recommended)
+1. **Download** `simple-morph.css` and `simple-morph.js` from this repository
+2. **Copy** them to your project folder
+3. **Include** them in your HTML:
 
 ```html
 <!DOCTYPE html>
@@ -66,6 +61,14 @@ Experience all the features, components, and interactive elements in action. The
 </body>
 </html>
 ```
+
+### 🌐 CDN (GitHub Pages)
+```html
+<link rel="stylesheet" href="https://davidteren.github.io/simple-morph/simple-morph.css">
+<script src="https://davidteren.github.io/simple-morph/simple-morph.js"></script>
+```
+
+**That's it!** No npm install, no build step, no configuration. Just include the files and start writing semantic HTML.
 
 ## 📖 Usage
 
@@ -353,6 +356,32 @@ window.SimpleMorph
 SimpleMorph.utils.debounce(func, delay)
 SimpleMorph.utils.isInViewport(element)
 ```
+
+## 🛠️ Development & Preview
+
+Simple Morph requires no build process! For development and preview:
+
+### Local Development
+1. **Copy the files** to your project directory
+2. **Start a simple HTTP server** (any will work):
+   ```bash
+   # Python (most systems)
+   python3 -m http.server 8000
+
+   # Node.js (if you have it)
+   npx serve .
+
+   # PHP (if you have it)
+   php -S localhost:8000
+   ```
+3. **Open** `http://localhost:8000` in your browser
+4. **Edit** the CSS/JS files directly - refresh to see changes
+
+### No Build Required
+- ✅ **Direct file editing** - modify `simple-morph.css` and `simple-morph.js` directly
+- ✅ **Instant preview** - just refresh your browser to see changes
+- ✅ **No dependencies** - works with any HTTP server
+- ✅ **No compilation** - CSS and JS are ready to use as-is
 
 ## 📱 Browser Support
 
