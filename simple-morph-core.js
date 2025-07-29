@@ -16,6 +16,7 @@
       this.setupMobileMenu();
       this.setupSmoothScroll();
       this.setupFormValidation();
+      this.setupTocClose();
       
       // Expose public API
       this.exposeAPI();
@@ -137,6 +138,20 @@
             if (firstInvalid) {
               firstInvalid.focus();
             }
+          }
+        });
+      });
+    },
+
+    // Table of Contents close functionality
+    setupTocClose: function() {
+      const tocCloseButtons = document.querySelectorAll('.toc-close');
+      
+      tocCloseButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const toc = this.closest('nav.toc');
+          if (toc) {
+            toc.classList.add('hidden');
           }
         });
       });
