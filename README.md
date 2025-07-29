@@ -1,16 +1,12 @@
 # Simple Morph 🚀
 
-[![Version](https://img.shields.io/badge/version-0.0.1--alpha-orange.svg)](https://github.com/davidteren/simple_morph/releases)
+[![Version](https://img.shields.io/badge/version-0.0.1--beta-blue.svg)](https://github.com/davidteren/simple_morph/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Alpha](https://img.shields.io/badge/status-alpha-red.svg)](https://github.com/davidteren/simple_morph)
+[![Beta](https://img.shields.io/badge/status-beta-yellow.svg)](https://github.com/davidteren/simple_morph)
 
-A modern CSS framework inspired by [Simple.css](https://simplecss.org) with a futuristic dark theme, glassmorphism effects, and semantic HTML-first approach.
-
-> **⚠️ Alpha Version Warning**: This is an alpha release (v0.0.1-alpha). Breaking changes may occur between versions. Use with caution in production environments.
+A minimalist CSS framework with futuristic dark theme and glassmorphism effects.
 
 **[🚀 View Live Demo](https://davidteren.github.io/simple_morph/)**
-
-![Simple Morph](simple_morph.png)
 
 ## ✨ Features
 

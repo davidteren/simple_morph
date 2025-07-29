@@ -13,7 +13,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhance strong glass effect styling
 - Fix tooltip hover functionality
 - Improve modal dialog interactions
-- Add GitHub repository link to demo site interface
+
+## [0.0.1-beta] - 2025-07-30
+
+### Added
+- Table of contents with close button functionality
+- Consistent code examples with copy buttons across documentation
+- GitHub link button in demo interface
+- Get Started button that scrolls to relevant content
+
+### Changed
+- Updated version status from alpha to beta
+- Simplified README to be more succinct
+- Removed deprecated files and documentation
+
+### Fixed
+- Restored sticky positioning for table of contents on desktop
+- Improved code example formatting consistency
 
 ## [0.0.1-alpha] - 2025-01-11
 
@@ -73,6 +89,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History Summary
 
+- **v0.0.1-beta** (2025-07-30): Beta release with improved documentation, TOC functionality, and version status update
 - **v0.0.1-alpha** (2025-01-11): Initial alpha release with complete component library and fixed desktop layout
 - **Unreleased**: Ongoing improvements and bug fixes
 

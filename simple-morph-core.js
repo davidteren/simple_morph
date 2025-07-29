@@ -1,5 +1,5 @@
 /* Simple Morph Core JavaScript - Essential Features Only */
-/* Version 0.0.1-alpha-core - Released 2025-07-29 */
+/* Version 0.0.1-beta-core - Released 2025-07-30 */
 /* Repository: https://github.com/davidteren/simple_morph */
 
 (function() {
