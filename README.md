@@ -18,10 +18,14 @@ A minimalist CSS framework with futuristic dark theme and glassmorphism effects.
 - **🎯 Accessibility Focused** - WCAG compliant with proper focus states
 - **🔧 Customizable** - CSS custom properties for easy theming
 - **📦 Lightweight** - Optimized for performance
-- **🧭 Navigation Components** - Interactive tabs, breadcrumbs, pagination, dropdowns
-- **🪟 Modal Dialogs** - Beautiful overlay modals with backdrop blur and animations
-- **🚨 Enhanced Alerts** - Dismissible alerts with icons, animations, and close buttons
-- **🎛️ Interactive Elements** - Rich component library with hover effects and transitions
+- **🔤 Typography** - Beautiful headings, paragraphs, blockquotes, and inline code
+- **🔘 Buttons** - Multiple variants (default, primary, secondary, link)
+- **📝 Forms** - Styled inputs, textareas, selects, and checkboxes
+- **🃏 Cards** - Glassmorphism cards with hover effects
+- **📋 Tables** - Clean table styling with responsive behavior
+- **🚨 Alerts** - Essential alert variants for user feedback
+- **🧭 Navigation** - Fixed navbar with mobile menu support
+- **🛠️ Utilities** - Helper classes for common styling needs
 
 ## 🌟 Live Demo
 
