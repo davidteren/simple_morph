@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Morph CSS Framework - Semantic HTML First</title>
+    <link rel="stylesheet" href="simple-morph.css">
+    <script src="simple-morph.js"></script>
+    <!-- GitHub Buttons Script -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">
+            <div class="navbar-logo">S</div>
+            Simple Morph
+        </a>
+        <nav class="navbar-nav">
+            <ul>
+                <li><a href="index.html">Semantic</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="advanced.html">Advanced</a></li>
+                <li>
+                    <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
+                </li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <!-- SVG for menu icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<div class="mobile-menu">
+    <a href="index.html">Semantic</a>
+    <a href="components.html">Components</a>
+    <a href="advanced.html">Advanced</a>
+    <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
+</div>
+
+<main>
+    <section class="hero">
+        <h1>Simple Morph CSS Framework</h1>
+        <p class="hero-subtitle">A modern CSS framework inspired by Simple.css with futuristic dark theme, glassmorphism effects, and semantic HTML-first approach.</p>
+        
+        <div class="hero-features">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🏷️ Semantic First</h3>
+                    <p>Start with standard HTML elements. No classes required for basic styling.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Glass Effects</h3>
+                    <p>Beautiful glassmorphism effects with customizable blur and opacity levels.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Mobile Ready</h3>
+                    <p>Responsive design that works perfectly on all devices out of the box.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-actions">
+            <a href="components.html" class="hero-button hero-button--primary">Explore Components</a>
+            <a href="advanced.html" class="hero-button hero-button--outline">Advanced Features</a>
+        </div>
+    </section>
+
+    <!-- Semantic Components Section -->
+    <section id="semantic">
+        <h2>Semantic Components</h2>
+        <p class="section-intro">These components work with standard HTML elements and require minimal or no CSS classes. Perfect for getting started quickly with semantic, accessible markup.</p>
+
+        <article>
+            <h3>Typography & Text Elements</h3>
+            <p>All typography uses rem for sizing to maintain accessibility for users who change their browser font size. The body element has a size of 1.15rem (18.4px) following Simple.css sizing approach.</p>
+            
+            <div class="heading-demo">
+                <h1>Heading 1 (3rem)</h1>
+                <h2>Heading 2 (2.6rem)</h2>
+                <h3>Heading 3 (2rem)</h3>
+                <h4>Heading 4 (1.44rem)</h4>
+                <h5>Heading 5 (1.15rem)</h5>
+                <h6>Heading 6 (0.96rem)</h6>
+            </div>
+
+            <h4>Text Formatting</h4>
+            <p>This paragraph demonstrates various text formatting options:</p>
+            <p><strong>Bold text</strong> for emphasis, <em>italic text</em> for subtle emphasis, <u>underlined text</u> for highlighting, and <mark>marked text</mark> for important information.</p>
+            <p><small>Small text for fine print</small> and <del>deleted text</del> with <ins>inserted text</ins> for showing changes.</p>
+
+            <h4>Lists</h4>
+            <ul>
+                <li>Unordered list with custom bullet styling</li>
+                <li>Glassmorphism effects applied automatically</li>
+                <li>No classes needed for basic styling</li>
+                <li>Nested lists work seamlessly:
+                    <ul>
+                        <li>Nested item one</li>
+                        <li>Nested item two</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ol>
+                <li>Ordered list with custom numbering</li>
+                <li>Futuristic styling applied automatically</li>
+                <li>No classes needed for basic styling</li>
+            </ol>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Typography Examples --&gt;
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;Highlighted text&lt;/mark&gt; and &lt;small&gt;small text&lt;/small&gt;&lt;/p&gt;
+
+&lt;!-- Lists --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Unordered list item&lt;/li&gt;
+    &lt;li&gt;Another item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Ordered list item&lt;/li&gt;
+    &lt;li&gt;Another item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            </details>
+        </article>
+
+        <article>
+            <h3>Code Elements</h3>
+            <p>Inline code: <code>const framework = 'simple-morph';</code></p>
+            <pre><code>// Code block example
+function initFramework() {
+  console.log('🚀 Simple Morph CSS Framework');
+  return {
+    theme: 'dark',
+    style: 'glassmorphism',
+    philosophy: 'semantic-first'
+  };
+}</code></pre>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Inline Code --&gt;
+&lt;p&gt;Inline code: &lt;code&gt;const framework = 'simple-morph';&lt;/code&gt;&lt;/p&gt;
+
+&lt;!-- Code Block --&gt;
+&lt;pre&gt;&lt;code&gt;// Code block example
+function initFramework() {
+  console.log('🚀 Simple Morph CSS Framework');
+  return {
+    theme: 'dark',
+    style: 'glassmorphism',
+    philosophy: 'semantic-first'
+  };
+}&lt;/code&gt;&lt;/pre&gt;</code></pre>
+            </details>
+        </article>
+
+        <article>
+            <h3>Basic Buttons</h3>
+            <p>Standard HTML buttons with automatic styling. Add optional classes for different variants:</p>
+            <div class="button-demo">
+                <button>Default Button</button>
+                <button class="button-primary">Primary Button</button>
+                <button class="button-secondary">Secondary Button</button>
+                <button class="button-success">Success Button</button>
+                <button class="button-warning">Warning Button</button>
+                <button class="button-error">Error Button</button>
+                <button class="button-outline">Outline Button</button>
+                <button disabled>Disabled Button</button>
+            </div>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Default button (no classes needed) --&gt;
+&lt;button&gt;Default Button&lt;/button&gt;
+
+&lt;!-- Button variants with optional classes --&gt;
+&lt;button class="button-primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="button-secondary"&gt;Secondary Button&lt;/button&gt;
+&lt;button class="button-success"&gt;Success Button&lt;/button&gt;
+&lt;button class="button-warning"&gt;Warning Button&lt;/button&gt;
+&lt;button class="button-error"&gt;Error Button&lt;/button&gt;
+&lt;button class="button-outline"&gt;Outline Button&lt;/button&gt;
+&lt;button disabled&gt;Disabled Button&lt;/button&gt;</code></pre>
+            </details>
+        </article>
+
+        <article>
+            <h3>Basic Forms</h3>
+            <p>Standard HTML form elements with automatic styling:</p>
+            <form class="demo-form">
+                <label for="demo-name">Full Name</label>
+                <input type="text" id="demo-name" placeholder="Enter your full name">
+
+                <label for="demo-email">Email Address</label>
+                <input type="email" id="demo-email" placeholder="your@email.com">
+
+                <label for="demo-subject">Subject</label>
+                <select id="demo-subject">
+                    <option>Choose a subject</option>
+                    <option>General Inquiry</option>
+                    <option>Technical Support</option>
+                    <option>Feedback</option>
+                </select>
+
+                <label for="demo-message">Message</label>
+                <textarea id="demo-message" placeholder="Enter your message here..."></textarea>
+
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    I agree to the terms and conditions
+                </label>
+
+                <button type="submit" class="button-primary">Send Message</button>
+            </form>
+
+            <details class="code-example">
+                <summary>Show Code Example</summary>
+                <pre><code>&lt;!-- Basic Form Elements --&gt;
+&lt;form&gt;
+    &lt;label for="name"&gt;Full Name&lt;/label&gt;
+    &lt;input type="text" id="name" placeholder="Enter your name"&gt;
+
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="email" placeholder="your@email.com"&gt;
+
+    &lt;label for="subject"&gt;Subject&lt;/label&gt;
+    &lt;select id="subject"&gt;
+        &lt;option&gt;Choose a subject&lt;/option&gt;
+        &lt;option&gt;General Inquiry&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label for="message"&gt;Message&lt;/label&gt;
+    &lt;textarea id="message" placeholder="Your message..."&gt;&lt;/textarea&gt;
+
+    &lt;label class="checkbox-label"&gt;
+        &lt;input type="checkbox"&gt;
+        I agree to the terms
+    &lt;/label&gt;
+
+    &lt;button type="submit" class="button-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </details>
+        </article>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quick-start">
+        <h2>Quick Start</h2>
+        <p>Get started with Simple Morph in seconds. Just include the CSS file and start writing semantic HTML:</p>
+        
+        <pre><code>&lt;!-- Include Simple Morph CSS --&gt;
+&lt;link rel="stylesheet" href="simple-morph.css"&gt;
+
+&lt;!-- Write semantic HTML --&gt;
+&lt;main&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;p&gt;Beautiful styling applied automatically!&lt;/p&gt;
+    &lt;button&gt;Click me&lt;/button&gt;
+&lt;/main&gt;</code></pre>
+
+        <div class="next-steps">
+            <h3>Next Steps</h3>
+            <div class="step-grid">
+                <a href="components.html" class="step-card">
+                    <h4>🧩 Explore Components</h4>
+                    <p>Discover enhanced UI components like cards, navigation, and interactive elements.</p>
+                </a>
+                <a href="advanced.html" class="step-card">
+                    <h4>⚡ Advanced Features</h4>
+                    <p>Unlock powerful glass effects, animations, and complex interactive components.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Simple Morph CSS Framework. Built with ❤️ for the future of web design.</p>
+    <p>Inspired by Simple.css philosophy with modern futuristic aesthetics.</p>
+    <div class="footer-links">
+        <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
+        <span class="footer-divider">•</span>
+        <a href="https://simplecss.org" target="_blank" rel="noopener noreferrer">Inspired by Simple.css</a>
+    </div>
+</footer>
+</body>
+</html>

@@ -3,295 +3,758 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Morph CSS Framework - Semantic HTML First</title>
-    <link rel="stylesheet" href="simple-morph.css">
-    <script src="simple-morph.js"></script>
-    <!-- GitHub Buttons Script -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>Simple Morph Core - Complete Demo & Documentation</title>
+    <link rel="stylesheet" href="simple-morph-core.css">
+    <style>
+        /* Demo-specific styles */
+        .demo-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .code-example {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            position: relative;
+            line-height: 1.4;
+        }
+        
+        .code-example::before {
+            content: 'HTML';
+            position: absolute;
+            top: 0.5rem;
+            right: 3rem;
+            background: var(--accent-primary);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        
+        .copy-button:hover {
+            background: rgba(74, 158, 255, 0.2);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+        
+        .copy-button.copied {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: var(--accent-success);
+            color: var(--accent-success);
+        }
+        
+        .demo-component {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .component-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.1) 0%, rgba(123, 104, 238, 0.1) 100%);
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .toc {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            margin: 2rem 0;
+            position: sticky;
+            top: 4rem;
+            backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
+            box-shadow: var(--glass-shadow-strong);
+            z-index: 10;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+        }
+        
+        .toc li {
+            margin: 0.25rem 0;
+        }
+        
+        .toc a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .toc a:hover {
+            color: var(--accent-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .toc {
+                position: static;
+            }
+            
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<header class="navbar">
-    <div class="navbar-container">
-        <a href="index.html" class="navbar-brand">
-            <div class="navbar-logo">S</div>
-            Simple Morph
-        </a>
-        <nav class="navbar-nav">
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">
+                <div class="navbar-logo">S</div>
+                Simple Morph Core
+            </a>
+            <nav class="navbar-nav">
+                <ul>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="#customization">Customization</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu">
+        <a href="#getting-started">Getting Started</a>
+        <a href="#documentation">Documentation</a>
+        <a href="#customization">Customization</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>Simple Morph Core</h1>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">A streamlined CSS framework with essential components only. Copy two files and start building beautiful, modern interfaces.</p>
+            <div class="hero-buttons">
+                <button class="button-primary">Get Started</button>
+                <button class="button-secondary">View on GitHub</button>
+            </div>
+        </section>
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h3>Table of Contents</h3>
             <ul>
-                <li><a href="index.html">Semantic</a></li>
-                <li><a href="components.html">Components</a></li>
-                <li><a href="advanced.html">Advanced</a></li>
-                <li>
-                    <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
-                </li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#cards">Cards</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#alerts">Alerts</a></li>
+                <li><a href="#navigation">Navigation</a></li>
+                <li><a href="#utilities">Utilities</a></li>
+                <li><a href="#customization">Customization</a></li>
             </ul>
         </nav>
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-            <!-- SVG for menu icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
-    </div>
-</header>
 
-<div class="mobile-menu">
-    <a href="index.html">Semantic</a>
-    <a href="components.html">Components</a>
-    <a href="advanced.html">Advanced</a>
-    <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
-</div>
-
-<main>
-    <section class="hero">
-        <h1>Simple Morph CSS Framework</h1>
-        <p class="hero-subtitle">A modern CSS framework inspired by Simple.css with futuristic dark theme, glassmorphism effects, and semantic HTML-first approach.</p>
-        
-        <div class="hero-features">
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🏷️ Semantic First</h3>
-                    <p>Start with standard HTML elements. No classes required for basic styling.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🎨 Glass Effects</h3>
-                    <p>Beautiful glassmorphism effects with customizable blur and opacity levels.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>📱 Mobile Ready</h3>
-                    <p>Responsive design that works perfectly on all devices out of the box.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-actions">
-            <a href="components.html" class="hero-button hero-button--primary">Explore Components</a>
-            <a href="advanced.html" class="hero-button hero-button--outline">Advanced Features</a>
-        </div>
-    </section>
-
-    <!-- Semantic Components Section -->
-    <section id="semantic">
-        <h2>Semantic Components</h2>
-        <p class="section-intro">These components work with standard HTML elements and require minimal or no CSS classes. Perfect for getting started quickly with semantic, accessible markup.</p>
-
-        <article>
-            <h3>Typography & Text Elements</h3>
-            <p>All typography uses rem for sizing to maintain accessibility for users who change their browser font size. The body element has a size of 1.15rem (18.4px) following Simple.css sizing approach.</p>
+        <!-- Getting Started -->
+        <section id="getting-started" class="demo-section">
+            <h2>Getting Started</h2>
+            <p>Simple Morph Core is designed for maximum simplicity. Just copy two files and start building!</p>
             
-            <div class="heading-demo">
-                <h1>Heading 1 (3rem)</h1>
-                <h2>Heading 2 (2.6rem)</h2>
-                <h3>Heading 3 (2rem)</h3>
-                <h4>Heading 4 (1.44rem)</h4>
-                <h5>Heading 5 (1.15rem)</h5>
-                <h6>Heading 6 (0.96rem)</h6>
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <h4>1. Copy the Files</h4>
+                    <p>Download <code>simple-morph-core.css</code> and <code>simple-morph-core.js</code> to your project folder.</p>
+                </div>
+                <div class="code-example">
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="simple-morph-core.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;script src="simple-morph-core.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
             </div>
 
-            <h4>Text Formatting</h4>
-            <p>This paragraph demonstrates various text formatting options:</p>
-            <p><strong>Bold text</strong> for emphasis, <em>italic text</em> for subtle emphasis, <u>underlined text</u> for highlighting, and <mark>marked text</mark> for important information.</p>
-            <p><small>Small text for fine print</small> and <del>deleted text</del> with <ins>inserted text</ins> for showing changes.</p>
+            <div class="feature-grid">
+                <div class="card hover-glow">
+                    <h4>🎯 Essential Components</h4>
+                    <p>Only the components you actually need: typography, buttons, forms, cards, alerts, and navigation.</p>
+                </div>
+                <div class="card hover-glow">
+                    <h4>⚡ Zero Build Process</h4>
+                    <p>No npm, no webpack, no compilation. Just copy two files and start building.</p>
+                </div>
+                <div class="card hover-glow">
+                    <h4>📱 Mobile First</h4>
+                    <p>Responsive design with mobile navigation and touch-friendly interactions.</p>
+                </div>
+                <div class="card hover-glow">
+                    <h4>♿ Accessible</h4>
+                    <p>WCAG compliant with proper focus states, ARIA attributes, and keyboard navigation.</p>
+                </div>
+            </div>
+        </section>
 
-            <h4>Lists</h4>
-            <ul>
-                <li>Unordered list with custom bullet styling</li>
-                <li>Glassmorphism effects applied automatically</li>
-                <li>No classes needed for basic styling</li>
-                <li>Nested lists work seamlessly:
-                    <ul>
-                        <li>Nested item one</li>
-                        <li>Nested item two</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <ol>
-                <li>Ordered list with custom numbering</li>
-                <li>Futuristic styling applied automatically</li>
-                <li>No classes needed for basic styling</li>
-            </ol>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Typography Examples --&gt;
+        <!-- Typography -->
+        <section id="typography" class="demo-section">
+            <h2>Typography</h2>
+            <p>Beautiful typography with gradient text effects for headings and semantic HTML support.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+                    <p>This is a paragraph with <strong>strong text</strong> and <em>emphasized text</em>.</p>
+                    <blockquote>This is a blockquote with glassmorphism styling.</blockquote>
+                    <p>Inline <code>code</code> with syntax highlighting.</p>
+                </div>
+                <div class="code-example">
 &lt;h1&gt;Heading 1&lt;/h1&gt;
 &lt;h2&gt;Heading 2&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;mark&gt;Highlighted text&lt;/mark&gt; and &lt;small&gt;small text&lt;/small&gt;&lt;/p&gt;
-
-&lt;!-- Lists --&gt;
-&lt;ul&gt;
-    &lt;li&gt;Unordered list item&lt;/li&gt;
-    &lt;li&gt;Another item&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-    &lt;li&gt;Ordered list item&lt;/li&gt;
-    &lt;li&gt;Another item&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Code Elements</h3>
-            <p>Inline code: <code>const framework = 'simple-morph';</code></p>
-            <pre><code>// Code block example
-function initFramework() {
-  console.log('🚀 Simple Morph CSS Framework');
-  return {
-    theme: 'dark',
-    style: 'glassmorphism',
-    philosophy: 'semantic-first'
-  };
-}</code></pre>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Inline Code --&gt;
-&lt;p&gt;Inline code: &lt;code&gt;const framework = 'simple-morph';&lt;/code&gt;&lt;/p&gt;
-
-&lt;!-- Code Block --&gt;
-&lt;pre&gt;&lt;code&gt;// Code block example
-function initFramework() {
-  console.log('🚀 Simple Morph CSS Framework');
-  return {
-    theme: 'dark',
-    style: 'glassmorphism',
-    philosophy: 'semantic-first'
-  };
-}&lt;/code&gt;&lt;/pre&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Basic Buttons</h3>
-            <p>Standard HTML buttons with automatic styling. Add optional classes for different variants:</p>
-            <div class="button-demo">
-                <button>Default Button</button>
-                <button class="button-primary">Primary Button</button>
-                <button class="button-secondary">Secondary Button</button>
-                <button class="button-success">Success Button</button>
-                <button class="button-warning">Warning Button</button>
-                <button class="button-error">Error Button</button>
-                <button class="button-outline">Outline Button</button>
-                <button disabled>Disabled Button</button>
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;p&gt;Paragraph with &lt;strong&gt;strong&lt;/strong&gt; and &lt;em&gt;emphasis&lt;/em&gt;.&lt;/p&gt;
+&lt;blockquote&gt;Beautiful blockquote&lt;/blockquote&gt;
+&lt;p&gt;Inline &lt;code&gt;code&lt;/code&gt; example.&lt;/p&gt;
+                </div>
             </div>
+        </section>
 
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Default button (no classes needed) --&gt;
+        <!-- Buttons -->
+        <section id="buttons" class="demo-section">
+            <h2>Buttons</h2>
+            <p>Essential button variants with hover effects and accessibility support.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <div class="component-showcase">
+                        <button>Default Button</button>
+                        <button class="button-primary">Primary Button</button>
+                        <button class="button-secondary">Secondary Button</button>
+                        <a href="#" class="button">Link Button</a>
+                    </div>
+                </div>
+                <div class="code-example">
 &lt;button&gt;Default Button&lt;/button&gt;
-
-&lt;!-- Button variants with optional classes --&gt;
-&lt;button class="button-primary"&gt;Primary Button&lt;/button&gt;
-&lt;button class="button-secondary"&gt;Secondary Button&lt;/button&gt;
-&lt;button class="button-success"&gt;Success Button&lt;/button&gt;
-&lt;button class="button-warning"&gt;Warning Button&lt;/button&gt;
-&lt;button class="button-error"&gt;Error Button&lt;/button&gt;
-&lt;button class="button-outline"&gt;Outline Button&lt;/button&gt;
-&lt;button disabled&gt;Disabled Button&lt;/button&gt;</code></pre>
-            </details>
-        </article>
-
-        <article>
-            <h3>Basic Forms</h3>
-            <p>Standard HTML form elements with automatic styling:</p>
-            <form class="demo-form">
-                <label for="demo-name">Full Name</label>
-                <input type="text" id="demo-name" placeholder="Enter your full name">
-
-                <label for="demo-email">Email Address</label>
-                <input type="email" id="demo-email" placeholder="your@email.com">
-
-                <label for="demo-subject">Subject</label>
-                <select id="demo-subject">
-                    <option>Choose a subject</option>
-                    <option>General Inquiry</option>
-                    <option>Technical Support</option>
-                    <option>Feedback</option>
-                </select>
-
-                <label for="demo-message">Message</label>
-                <textarea id="demo-message" placeholder="Enter your message here..."></textarea>
-
-                <label class="checkbox-label">
-                    <input type="checkbox">
-                    I agree to the terms and conditions
-                </label>
-
-                <button type="submit" class="button-primary">Send Message</button>
-            </form>
-
-            <details class="code-example">
-                <summary>Show Code Example</summary>
-                <pre><code>&lt;!-- Basic Form Elements --&gt;
-&lt;form&gt;
-    &lt;label for="name"&gt;Full Name&lt;/label&gt;
-    &lt;input type="text" id="name" placeholder="Enter your name"&gt;
-
-    &lt;label for="email"&gt;Email&lt;/label&gt;
-    &lt;input type="email" id="email" placeholder="your@email.com"&gt;
-
-    &lt;label for="subject"&gt;Subject&lt;/label&gt;
-    &lt;select id="subject"&gt;
-        &lt;option&gt;Choose a subject&lt;/option&gt;
-        &lt;option&gt;General Inquiry&lt;/option&gt;
-    &lt;/select&gt;
-
-    &lt;label for="message"&gt;Message&lt;/label&gt;
-    &lt;textarea id="message" placeholder="Your message..."&gt;&lt;/textarea&gt;
-
-    &lt;label class="checkbox-label"&gt;
-        &lt;input type="checkbox"&gt;
-        I agree to the terms
-    &lt;/label&gt;
-
-    &lt;button type="submit" class="button-primary"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-            </details>
-        </article>
-    </section>
-
-    <!-- Quick Start Section -->
-    <section id="quick-start">
-        <h2>Quick Start</h2>
-        <p>Get started with Simple Morph in seconds. Just include the CSS file and start writing semantic HTML:</p>
-        
-        <pre><code>&lt;!-- Include Simple Morph CSS --&gt;
-&lt;link rel="stylesheet" href="simple-morph.css"&gt;
-
-&lt;!-- Write semantic HTML --&gt;
-&lt;main&gt;
-    &lt;h1&gt;My Website&lt;/h1&gt;
-    &lt;p&gt;Beautiful styling applied automatically!&lt;/p&gt;
-    &lt;button&gt;Click me&lt;/button&gt;
-&lt;/main&gt;</code></pre>
-
-        <div class="next-steps">
-            <h3>Next Steps</h3>
-            <div class="step-grid">
-                <a href="components.html" class="step-card">
-                    <h4>🧩 Explore Components</h4>
-                    <p>Discover enhanced UI components like cards, navigation, and interactive elements.</p>
-                </a>
-                <a href="advanced.html" class="step-card">
-                    <h4>⚡ Advanced Features</h4>
-                    <p>Unlock powerful glass effects, animations, and complex interactive components.</p>
-                </a>
+&lt;button class="button-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="button-secondary"&gt;Secondary&lt;/button&gt;
+&lt;a href="#" class="button"&gt;Link Button&lt;/a&gt;
+                </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
-<footer>
-    <p>© 2025 Simple Morph CSS Framework. Built with ❤️ for the future of web design.</p>
-    <p>Inspired by Simple.css philosophy with modern futuristic aesthetics.</p>
-    <div class="footer-links">
-        <a class="github-button" href="https://github.com/davidteren/simple_morph" data-color-scheme="dark" data-icon="octicon-star" data-size="large" aria-label="Star davidteren/simple_morph on GitHub">Star</a>
-        <span class="footer-divider">•</span>
-        <a href="https://simplecss.org" target="_blank" rel="noopener noreferrer">Inspired by Simple.css</a>
-    </div>
-</footer>
+        <!-- Forms -->
+        <section id="forms" class="demo-section">
+            <h2>Forms</h2>
+            <p>Clean form styling with validation states and accessibility features.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <form>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                        
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="Your message..."></textarea>
+                        
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option>Select a category</option>
+                            <option>General</option>
+                            <option>Support</option>
+                            <option>Feedback</option>
+                        </select>
+                        
+                        <label>
+                            <input type="checkbox" id="terms" required>
+                            I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                        
+                        <button type="submit" class="button-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Name&lt;/label&gt;
+  &lt;input type="text" id="name" required&gt;
+  
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email" required&gt;
+  
+  &lt;label for="message"&gt;Message&lt;/label&gt;
+  &lt;textarea id="message" rows="4"&gt;&lt;/textarea&gt;
+  
+  &lt;label&gt;
+    &lt;input type="checkbox" required&gt;
+    I agree to the terms and conditions
+  &lt;/label&gt;
+  
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards -->
+        <section id="cards" class="demo-section">
+            <h2>Cards</h2>
+            <p>Glassmorphism cards with hover effects for content organization.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <div class="feature-grid">
+                        <div class="card hover-glow">
+                            <h4>Feature Card</h4>
+                            <p>This is a basic card with glassmorphism styling and hover effects.</p>
+                        </div>
+                        <div class="card glass-strong">
+                            <h4>Enhanced Glass Card</h4>
+                            <p>Enhanced glass effect with the <code>.glass-strong</code> utility class.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+&lt;div class="card hover-glow"&gt;
+    &lt;h4&gt;Card Title&lt;/h4&gt;
+    &lt;p&gt;Card with hover glow effects.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="card glass-strong"&gt;
+    &lt;h4&gt;Enhanced Glass Card&lt;/h4&gt;
+    &lt;p&gt;With stronger glass effect.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tables -->
+        <section id="tables" class="demo-section">
+            <h2>Tables</h2>
+            <p>Clean table styling with responsive behavior and glassmorphism effects.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>Developer</td>
+                                <td>john@example.com</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>Designer</td>
+                                <td>jane@example.com</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>Bob Johnson</td>
+                                <td>Manager</td>
+                                <td>bob@example.com</td>
+                                <td>Inactive</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+      &lt;th&gt;Email&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;John Doe&lt;/td&gt;
+      &lt;td&gt;Developer&lt;/td&gt;
+      &lt;td&gt;john@example.com&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts -->
+        <section id="alerts" class="demo-section">
+            <h2>Alerts</h2>
+            <p>Essential alert variants for user feedback and notifications.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> Your action was completed successfully.
+                    </div>
+                    <div class="alert alert-warning">
+                        <strong>Warning!</strong> Please review your input before proceeding.
+                    </div>
+                    <div class="alert alert-error">
+                        <strong>Error!</strong> Something went wrong. Please try again.
+                    </div>
+                </div>
+                <div class="code-example">
+&lt;div class="alert alert-success"&gt;
+    &lt;strong&gt;Success!&lt;/strong&gt; Action completed.
+&lt;/div&gt;
+
+&lt;div class="alert alert-warning"&gt;
+    &lt;strong&gt;Warning!&lt;/strong&gt; Please review.
+&lt;/div&gt;
+
+&lt;div class="alert alert-error"&gt;
+    &lt;strong&gt;Error!&lt;/strong&gt; Try again.
+&lt;/div&gt;
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <section id="navigation" class="demo-section">
+            <h2>Navigation</h2>
+            <p>Fixed navigation bar with mobile menu support and smooth scrolling.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Fixed position with glassmorphism background</li>
+                        <li>Mobile-responsive hamburger menu</li>
+                        <li>Smooth scroll to anchor links</li>
+                        <li>Keyboard navigation support</li>
+                        <li>ARIA attributes for accessibility</li>
+                    </ul>
+                    <p>The navigation bar at the top of this page demonstrates all features. Try resizing your browser to see the mobile menu.</p>
+                </div>
+                <div class="code-example">
+&lt;header class="navbar"&gt;
+    &lt;div class="navbar-container"&gt;
+        &lt;a href="#" class="navbar-brand"&gt;
+            &lt;div class="navbar-logo"&gt;S&lt;/div&gt;
+            Brand Name
+        &lt;/a&gt;
+        &lt;nav class="navbar-nav"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;button class="mobile-menu-toggle"&gt;
+            &lt;svg&gt;...&lt;/svg&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+                </div>
+            </div>
+        </section>
+
+        <!-- Utilities -->
+        <section id="utilities" class="demo-section">
+            <h2>Utilities</h2>
+            <p>Essential utility classes for common styling needs.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <div class="glass" style="padding: 1rem; margin: 1rem 0;">
+                        <p class="text-center">Standard glass effect</p>
+                    </div>
+                    <div class="glass-strong hover-glow" style="padding: 1rem; margin: 1rem 0;">
+                        <p class="text-center">Enhanced glass with hover glow</p>
+                    </div>
+                    <div style="padding: 1rem; margin: 1rem 0;">
+                        <p class="text-left">Left aligned text</p>
+                        <p class="text-right">Right aligned text</p>
+                    </div>
+                </div>
+                <div class="code-example">
+&lt;!-- Glass morphism utilities --&gt;
+&lt;div class="glass"&gt;Standard glass&lt;/div&gt;
+&lt;div class="glass-strong"&gt;Enhanced glass&lt;/div&gt;
+&lt;div class="hover-glow"&gt;Hover glow effect&lt;/div&gt;
+
+&lt;!-- Text alignment --&gt;
+&lt;p class="text-center"&gt;Centered&lt;/p&gt;
+&lt;p class="text-left"&gt;Left aligned&lt;/p&gt;
+&lt;p class="text-right"&gt;Right aligned&lt;/p&gt;
+
+&lt;!-- Visibility --&gt;
+&lt;div class="hidden"&gt;Hidden element&lt;/div&gt;
+                </div>
+            </div>
+        </section>
+
+        <!-- Customization -->
+        <section id="customization" class="demo-section">
+            <h2>Customization</h2>
+            <p>Easy theming through CSS custom properties. No build process required!</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <h4>Available CSS Variables:</h4>
+                    <ul>
+                        <li><code>--accent-primary</code> - Primary accent color</li>
+                        <li><code>--accent-secondary</code> - Secondary accent color</li>
+                        <li><code>--bg-primary</code> - Primary background</li>
+                        <li><code>--bg-secondary</code> - Secondary background</li>
+                        <li><code>--text-primary</code> - Primary text color</li>
+                        <li><code>--border-radius</code> - Border radius</li>
+                        <li><code>--spacing-*</code> - Spacing scale</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+&lt;style&gt;
+:root {
+    /* Custom theme colors */
+    --accent-primary: #ff6b6b;
+    --accent-secondary: #4ecdc4;
+    --border-radius: 8px;
+    
+    /* Custom spacing */
+    --spacing-lg: 2rem;
+}
+&lt;/style&gt;
+                </div>
+            </div>
+        </section>
+
+        <!-- JavaScript API -->
+        <section id="javascript" class="demo-section">
+            <h2>JavaScript API</h2>
+            <p>Simple JavaScript API for enhanced functionality.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-component">
+                    <h4>Available Methods:</h4>
+                    <ul>
+                        <li><code>SimpleMorph.toggleMobileMenu()</code> - Toggle mobile menu</li>
+                        <li><code>SimpleMorph.utils.debounce()</code> - Debounce utility</li>
+                        <li><code>SimpleMorph.utils.isInViewport()</code> - Viewport detection</li>
+                    </ul>
+                    <button onclick="SimpleMorph.toggleMobileMenu()" class="button-primary">
+                        Test Mobile Menu Toggle
+                    </button>
+                </div>
+                <div class="code-example">
+&lt;script&gt;
+// Toggle mobile menu programmatically
+SimpleMorph.toggleMobileMenu();
+
+// Use utility functions
+const debouncedFn = SimpleMorph.utils.debounce(
+    () =&gt; console.log('Debounced!'), 
+    300
+);
+
+// Check if element is in viewport
+const isVisible = SimpleMorph.utils.isInViewport(
+    document.querySelector('.card')
+);
+&lt;/script&gt;
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance & Accessibility -->
+        <section id="performance" class="demo-section">
+            <h2>Performance & Accessibility</h2>
+            <p>Built with performance and accessibility in mind from the ground up.</p>
+            
+            <div class="feature-grid">
+                <div class="card">
+                    <h4>🏃‍♂️ Performance</h4>
+                    <ul>
+                        <li>Respects <code>prefers-reduced-motion</code></li>
+                        <li>Efficient event handling</li>
+                        <li>Minimal JavaScript footprint</li>
+                        <li>GPU-accelerated animations</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>♿ Accessibility</h4>
+                    <ul>
+                        <li>WCAG 2.1 AA compliant</li>
+                        <li>Proper ARIA attributes</li>
+                        <li>Keyboard navigation</li>
+                        <li>Focus management</li>
+                        <li>Screen reader support</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>📱 Responsive</h4>
+                    <ul>
+                        <li>Mobile-first design</li>
+                        <li>Touch-friendly interactions</li>
+                        <li>Flexible grid system</li>
+                        <li>Adaptive typography</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>🎨 Modern</h4>
+                    <ul>
+                        <li>Glassmorphism effects</li>
+                        <li>CSS Grid & Flexbox</li>
+                        <li>Custom properties</li>
+                        <li>Gradient text effects</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 4rem;">
+            <h3>Ready to get started?</h3>
+            <p>Copy <code>simple-morph-core.css</code> and <code>simple-morph-core.js</code> to your project and start building!</p>
+            <div class="component-showcase" style="justify-content: center; margin-top: 2rem;">
+                <button class="button-primary">Download Core Files</button>
+                <button class="button-secondary">View on GitHub</button>
+            </div>
+        </footer>
+    </main>
+
+    <script src="simple-morph-core.js"></script>
 </body>
 </html>
+
+
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement;
+            const preElement = codeBlock.querySelector('pre code');
+            let codeText;
+            
+            if (preElement) {
+                codeText = preElement.textContent;
+            } else {
+                codeText = codeBlock.textContent.replace(button.textContent, '').trim();
+            }
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalContent = button.innerHTML;
+                button.innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                    Copied!
+                `;
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalContent;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+
