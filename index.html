@@ -34,9 +34,11 @@
         
         .code-example::before {
             content: 'HTML';
-            position: absolute;
+            position: relative;
             top: 0.5rem;
-            right: 3rem;
+            top: 0.1rem;
+            /* right: 3rem; */
+            margin-bottom: 3rem;
             background: var(--accent-primary);
             color: white;
             padding: 0.2rem 0.5rem;
@@ -297,12 +299,18 @@
                     <p>Inline <code>code</code> with syntax highlighting.</p>
                 </div>
                 <div class="code-example">
-&lt;h1&gt;Heading 1&lt;/h1&gt;
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
 &lt;h2&gt;Heading 2&lt;/h2&gt;
 &lt;h3&gt;Heading 3&lt;/h3&gt;
 &lt;p&gt;Paragraph with &lt;strong&gt;strong&lt;/strong&gt; and &lt;em&gt;emphasis&lt;/em&gt;.&lt;/p&gt;
 &lt;blockquote&gt;Beautiful blockquote&lt;/blockquote&gt;
-&lt;p&gt;Inline &lt;code&gt;code&lt;/code&gt; example.&lt;/p&gt;
+&lt;p&gt;Inline &lt;code&gt;code&lt;/code&gt; example.&lt;/p&gt;</code></pre>
                 </div>
             </div>
         </section>
@@ -322,10 +330,16 @@
                     </div>
                 </div>
                 <div class="code-example">
-&lt;button&gt;Default Button&lt;/button&gt;
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;button&gt;Default Button&lt;/button&gt;
 &lt;button class="button-primary"&gt;Primary&lt;/button&gt;
 &lt;button class="button-secondary"&gt;Secondary&lt;/button&gt;
-&lt;a href="#" class="button"&gt;Link Button&lt;/a&gt;
+&lt;a href="#" class="button"&gt;Link Button&lt;/a&gt;</code></pre>
                 </div>
             </div>
         </section>
@@ -410,13 +424,19 @@
                     </div>
                 </div>
                 <div class="code-example">
-&lt;div class="card hover-glow"&gt;
-    &lt;h4&gt;Card Title&lt;/h4&gt;
-    &lt;p&gt;Card with hover glow effects.&lt;/p&gt;
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;div class="card"&gt;
+    &lt;h3&gt;Basic Card&lt;/h3&gt;
+    &lt;p&gt;Simple card with glass effect.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class="card glass-strong"&gt;
-    &lt;h4&gt;Enhanced Glass Card&lt;/h4&gt;
+    &lt;h3&gt;Enhanced Card&lt;/h3&gt;
     &lt;p&gt;With stronger glass effect.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
                 </div>
@@ -506,7 +526,13 @@
                     </div>
                 </div>
                 <div class="code-example">
-&lt;div class="alert alert-success"&gt;
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;div class="alert alert-success"&gt;
     &lt;strong&gt;Success!&lt;/strong&gt; Action completed.
 &lt;/div&gt;
 
@@ -516,7 +542,7 @@
 
 &lt;div class="alert alert-error"&gt;
     &lt;strong&gt;Error!&lt;/strong&gt; Try again.
-&lt;/div&gt;
+&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>
@@ -539,7 +565,13 @@
                     <p>The navigation bar at the top of this page demonstrates all features. Try resizing your browser to see the mobile menu.</p>
                 </div>
                 <div class="code-example">
-&lt;header class="navbar"&gt;
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;header class="navbar"&gt;
     &lt;div class="navbar-container"&gt;
         &lt;a href="#" class="navbar-brand"&gt;
             &lt;div class="navbar-logo"&gt;S&lt;/div&gt;
@@ -555,7 +587,7 @@
             &lt;svg&gt;...&lt;/svg&gt;
         &lt;/button&gt;
     &lt;/div&gt;
-&lt;/header&gt;
+&lt;/header&gt;</code></pre>
                 </div>
             </div>
         </section>
@@ -579,7 +611,13 @@
                     </div>
                 </div>
                 <div class="code-example">
-&lt;!-- Glass morphism utilities --&gt;
+                    <button class="copy-button" onclick="copyCode(this)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy
+                    </button><pre><code>&lt;!-- Glass morphism utilities --&gt;
 &lt;div class="glass"&gt;Standard glass&lt;/div&gt;
 &lt;div class="glass-strong"&gt;Enhanced glass&lt;/div&gt;
 &lt;div class="hover-glow"&gt;Hover glow effect&lt;/div&gt;
@@ -590,7 +628,7 @@
 &lt;p class="text-right"&gt;Right aligned&lt;/p&gt;
 
 &lt;!-- Visibility --&gt;
-&lt;div class="hidden"&gt;Hidden element&lt;/div&gt;
+&lt;div class="hidden"&gt;Hidden element&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>
