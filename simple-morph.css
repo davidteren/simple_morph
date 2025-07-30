@@ -6,6 +6,7 @@
 
 /* CSS Custom Properties - Essential Variables Only */
 :root {
+  --navbar-height: 56px; /* height of fixed navbar */
   --font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
   --font-heading: var(--font-family);
   --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -616,7 +617,7 @@ a:focus-visible {
 /* Table of Contents Styles */
 nav.toc {
   position: sticky;
-  top: var(--spacing-lg);
+  top: calc(var(--navbar-height) + var(--spacing-md));
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   border: var(--border-width) solid var(--glass-border);
