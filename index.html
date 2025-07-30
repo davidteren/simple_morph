@@ -22,6 +22,7 @@
         
         .code-example {
             background: rgba(0, 0, 0, 0.3);
+            padding-top: 2.5rem; /* space for label/button */
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 1.5rem;
@@ -34,14 +35,12 @@
         
         .code-example::before {
             content: 'HTML';
-            position: relative;
+            position: absolute;
             top: 0.5rem;
-            top: 0.1rem;
-            /* right: 3rem; */
-            margin-bottom: 3rem;
+            left: 0.5rem;
             background: var(--accent-primary);
-            color: white;
-            padding: 0.2rem 0.5rem;
+            color: #fff;
+            padding: 0.15rem 0.45rem;
             border-radius: 4px;
             font-size: 0.7rem;
             font-weight: bold;
@@ -54,16 +53,20 @@
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 6px;
-            padding: 0.4rem 0.6rem;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             transition: all var(--transition-fast);
             color: var(--text-secondary);
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
+            font-size: 0; /* hide text */
             z-index: 10;
             backdrop-filter: blur(10px);
+        }
+        .copy-button svg {
+            pointer-events: none;
         }
         
         .copy-button:hover {
