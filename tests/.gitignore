@@ -14,7 +14,7 @@ node_modules/
 # Playwright browsers
 .playwright/
 
-# Test artifacts
+# Test artifacts (including visual snapshots)
 *.png
 *.webm
 *.mp4
@@ -22,9 +22,9 @@ node_modules/
 *.xml
 *.md
 
-# But keep the snapshots for visual regression testing
-!specs/**-snapshots/
-!specs/**-snapshots/**
+# Visual regression snapshots (generated locally, not committed)
+**/*-snapshots/
+**/*-snapshots/**
 
 # Keep configuration and source files
 !package.json
