@@ -8,65 +8,106 @@
     <style>
         /* Demo-specific styles */
         .demo-section {
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 4rem 0;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        
+        .demo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(74, 158, 255, 0.3) 50%, 
+                transparent 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 1rem auto 0;
         }
         
         .demo-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 3rem;
+            margin: 3rem 0;
+            align-items: start;
         }
         
         .code-example {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
             position: relative;
-            line-height: 1.4;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
         }
         
-        .code-example::before {
-            content: 'HTML';
-            position: absolute;
-            top: 0.5rem;
-            left: 0.5rem;
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .code-language {
             background: var(--accent-primary);
-            color: #fff;
-            padding: 0.15rem 0.45rem;
+            color: white;
+            padding: 0.25rem 0.75rem;
             border-radius: 4px;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             font-weight: bold;
         }
         
+        .code-example pre {
+            margin: 0;
+            padding: 1.5rem;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .code-example code {
+            background: none;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+        
         .copy-button {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 6px;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all var(--transition-fast);
             color: var(--text-secondary);
-            font-size: 0; /* hide text */
-            z-index: 10;
             backdrop-filter: blur(10px);
         }
+        
         .copy-button svg {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             stroke: currentColor;
             pointer-events: none;
         }
@@ -84,11 +125,28 @@
             color: var(--accent-success);
         }
         
+        /* Feature icons */
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            stroke-width: 1.5;
+        }
+        
         .demo-component {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            backdrop-filter: blur(var(--glass-blur));
+            box-shadow: var(--glass-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .demo-component:hover {
+            background: var(--glass-bg-strong);
+            transform: translateY(-2px);
         }
         
         .component-showcase {
@@ -100,10 +158,81 @@
         
         .hero-section {
             text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(135deg, rgba(74, 158, 255, 0.1) 0%, rgba(123, 104, 238, 0.1) 100%);
-            border-radius: 16px;
-            margin: 2rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, 
+                rgba(74, 158, 255, 0.08) 0%, 
+                rgba(123, 104, 238, 0.08) 50%,
+                rgba(255, 119, 198, 0.08) 100%);
+            border-radius: 20px;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #4A9EFF 50%, #7B68EE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        .hero-orbs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.15) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .hero-orb-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .hero-orb-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+            background: radial-gradient(circle, rgba(123, 104, 238, 0.15) 0%, transparent 70%);
+        }
+        
+        .hero-orb-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 60%;
+            animation-delay: 4s;
+            background: radial-gradient(circle, rgba(255, 119, 198, 0.15) 0%, transparent 70%);
         }
         
         .hero-buttons {
@@ -162,9 +291,48 @@
             color: var(--accent-primary);
         }
         
+        /* Installation Steps */
+        .installation-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        /* Feature Icon */
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
         @media (max-width: 768px) {
             .demo-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .toc {
@@ -173,6 +341,28 @@
             
             .toc ul {
                 grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .installation-steps {
+                gap: 1.5rem;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -208,11 +398,20 @@
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
-            <h1>Simple Morph</h1>
-            <p style="font-size: 1.2rem; margin: 1rem 0;">A streamlined CSS framework with essential components only. Copy two files and start building beautiful, modern interfaces.</p>
-            <div class="hero-buttons">
-                <button class="button-primary" onclick="document.getElementById('getting-started').scrollIntoView({behavior: 'smooth'})">Get Started</button>
-                <button class="button-secondary" onclick="window.open('https://github.com/davidteren/simple_morph', '_blank')">View on GitHub</button>
+            <div class="hero-content">
+                <h1 class="hero-title">Simple Morph</h1>
+                <p class="hero-subtitle">A streamlined CSS framework with essential components only. Copy two files and start building beautiful, modern interfaces with advanced glassmorphism effects.</p>
+                <div class="hero-buttons">
+                    <button class="button-primary" onclick="document.getElementById('getting-started').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+                    <button class="button-secondary" onclick="window.open('https://github.com/davidteren/simple_morph', '_blank')">View on GitHub</button>
+                </div>
+            </div>
+            
+            <!-- Floating glass orbs for visual enhancement -->
+            <div class="hero-orbs">
+                <div class="hero-orb hero-orb-1"></div>
+                <div class="hero-orb hero-orb-2"></div>
+                <div class="hero-orb hero-orb-3"></div>
             </div>
         </section>
 
@@ -238,23 +437,48 @@
 
         <!-- Getting Started -->
         <section id="getting-started" class="demo-section">
-            <h2>Getting Started</h2>
-            <p>Simple Morph is designed for maximum simplicity. Just copy two files and start building!</p>
+            <div class="section-header">
+                <h2>Getting Started</h2>
+                <p class="section-description">Simple Morph is designed for maximum simplicity. Just copy two files and start building!</p>
+            </div>
             
             <div class="demo-grid">
                 <div class="demo-component">
-                    <h4>1. Copy the Files</h4>
-                    <p>Download <code>simple-morph.css</code> and <code>simple-morph.js</code> to your project folder.</p>
+                    <div class="installation-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Copy the Files</h4>
+                                <p>Download <code>simple-morph.css</code> and <code>simple-morph.js</code> to your project folder.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Include in HTML</h4>
+                                <p>Add the CSS and JS files to your HTML document.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Start Building</h4>
+                                <p>Use the components and utilities to create beautiful interfaces.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
 &lt;head&gt;
     &lt;link rel="stylesheet" href="simple-morph.css"&gt;
 &lt;/head&gt;
@@ -267,21 +491,59 @@
             </div>
 
             <div class="feature-grid">
-                <div class="card hover-glow">
-                    <h4>🎯 Essential Components</h4>
+                <div class="card hover-glow morph-lift">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                    <h4>Essential Components</h4>
                     <p>Only the components you actually need: typography, buttons, forms, cards, alerts, and navigation.</p>
                 </div>
-                <div class="card hover-glow">
-                    <h4>⚡ Zero Build Process</h4>
+                <div class="card hover-glow morph-lift">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+                    </svg>
+                    <h4>Zero Build Process</h4>
                     <p>No npm, no webpack, no compilation. Just copy two files and start building.</p>
                 </div>
-                <div class="card hover-glow">
-                    <h4>📱 Mobile First</h4>
+                <div class="card hover-glow morph-lift">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                        <line x1="12" y1="18" x2="12.01" y2="18"/>
+                    </svg>
+                    <h4>Mobile First</h4>
                     <p>Responsive design with mobile navigation and touch-friendly interactions.</p>
                 </div>
-                <div class="card hover-glow">
-                    <h4>♿ Accessible</h4>
+                <div class="card hover-glow morph-lift">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6"/>
+                        <path d="m21 12-6-3-6 3-6-3"/>
+                    </svg>
+                    <h4>Accessible</h4>
                     <p>WCAG compliant with proper focus states, ARIA attributes, and keyboard navigation.</p>
+                </div>
+                <div class="card hover-glow morph-lift">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="13.5" cy="6.5" r=".5"/>
+                        <circle cx="17.5" cy="10.5" r=".5"/>
+                        <circle cx="8.5" cy="7.5" r=".5"/>
+                        <circle cx="6.5" cy="12.5" r=".5"/>
+                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+                    </svg>
+                    <h4>Advanced Glassmorphism</h4>
+                    <p>Multiple glass variants with interactive effects and dynamic intensity.</p>
+                </div>
+                <div class="card hover-glow morph-lift">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                    </svg>
+                    <h4>Performance Optimized</h4>
+                    <p>GPU-accelerated animations with throttled scroll events and efficient rendering.</p>
                 </div>
             </div>
         </section>
@@ -304,13 +566,15 @@
                     <p>Inline <code>code</code> with syntax highlighting.</p>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
 &lt;h2&gt;Heading 2&lt;/h2&gt;
 &lt;h3&gt;Heading 3&lt;/h3&gt;
 &lt;p&gt;Paragraph with &lt;strong&gt;strong&lt;/strong&gt; and &lt;em&gt;emphasis&lt;/em&gt;.&lt;/p&gt;
@@ -335,13 +599,15 @@
                     </div>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;button&gt;Default Button&lt;/button&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;button&gt;Default Button&lt;/button&gt;
 &lt;button class="button-primary"&gt;Primary&lt;/button&gt;
 &lt;button class="button-secondary"&gt;Secondary&lt;/button&gt;
 &lt;a href="#" class="button"&gt;Link Button&lt;/a&gt;</code></pre>
@@ -383,13 +649,15 @@
                     </form>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;form&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;form&gt;
   &lt;label for="name"&gt;Name&lt;/label&gt;
   &lt;input type="text" id="name" required&gt;
   
@@ -429,13 +697,15 @@
                     </div>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;div class="card"&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;div class="card"&gt;
     &lt;h3&gt;Basic Card&lt;/h3&gt;
     &lt;p&gt;Simple card with glass effect.&lt;/p&gt;
 &lt;/div&gt;
@@ -487,13 +757,15 @@
                     </table>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;table&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Name&lt;/th&gt;
@@ -531,13 +803,15 @@
                     </div>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;div class="alert alert-success"&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;div class="alert alert-success"&gt;
     &lt;strong&gt;Success!&lt;/strong&gt; Action completed.
 &lt;/div&gt;
 
@@ -570,13 +844,15 @@
                     <p>The navigation bar at the top of this page demonstrates all features. Try resizing your browser to see the mobile menu.</p>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;header class="navbar"&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;header class="navbar"&gt;
     &lt;div class="navbar-container"&gt;
         &lt;a href="#" class="navbar-brand"&gt;
             &lt;div class="navbar-logo"&gt;S&lt;/div&gt;
@@ -600,40 +876,92 @@
         <!-- Utilities -->
         <section id="utilities" class="demo-section">
             <h2>Utilities</h2>
-            <p>Essential utility classes for common styling needs.</p>
+            <p>Advanced glassmorphism utilities and interactive effects for modern interfaces.</p>
             
             <div class="demo-grid">
                 <div class="demo-component">
-                    <div class="glass" style="padding: 1rem; margin: 1rem 0;">
-                        <p class="text-center">Standard glass effect</p>
+                    <h4>Glass Variants</h4>
+                    <div class="glass" style="padding: 1rem; margin: 0.5rem 0;">
+                        <p class="text-center">Standard Glass</p>
                     </div>
-                    <div class="glass-strong hover-glow" style="padding: 1rem; margin: 1rem 0;">
-                        <p class="text-center">Enhanced glass with hover glow</p>
+                    <div class="glass-strong" style="padding: 1rem; margin: 0.5rem 0;">
+                        <p class="text-center">Strong Glass</p>
                     </div>
-                    <div style="padding: 1rem; margin: 1rem 0;">
-                        <p class="text-left">Left aligned text</p>
-                        <p class="text-right">Right aligned text</p>
+                    <div class="glass-frosted" style="padding: 1rem; margin: 0.5rem 0;">
+                        <p class="text-center">Frosted Glass</p>
+                    </div>
+                    <div class="glass-vibrant" style="padding: 1rem; margin: 0.5rem 0;">
+                        <p class="text-center">Vibrant Glass</p>
+                    </div>
+                    <div class="glass-minimal" style="padding: 1rem; margin: 0.5rem 0;">
+                        <p class="text-center">Minimal Glass</p>
+                    </div>
+                    
+                    <h4 style="margin-top: 2rem;">Interactive Effects</h4>
+                    <div class="component-showcase">
+                        <button class="glass-interactive" style="padding: 0.75rem 1.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1);">
+                            Interactive Glass
+                        </button>
+                        <div class="morph-hover glass" style="padding: 1rem; cursor: pointer;">
+                            Morph Hover
+                        </div>
+                        <div class="morph-lift glass" style="padding: 1rem; cursor: pointer;">
+                            Lift Effect
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-top: 2rem;">Progress & Navigation</h4>
+                    <div class="progress-glass" style="margin: 1rem 0;">
+                        <div class="progress-fill" style="width: 65%;"></div>
+                    </div>
+                    
+                    <div class="nav-pills-glass" style="margin: 1rem 0;">
+                        <div class="nav-item active">Home</div>
+                        <div class="nav-item">About</div>
+                        <div class="nav-item">Contact</div>
                     </div>
                 </div>
                 <div class="code-example">
-                    <button class="copy-button" onclick="copyCode(this)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        Copy
-                    </button><pre><code>&lt;!-- Glass morphism utilities --&gt;
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>&lt;!-- Glass morphism variants --&gt;
 &lt;div class="glass"&gt;Standard glass&lt;/div&gt;
-&lt;div class="glass-strong"&gt;Enhanced glass&lt;/div&gt;
-&lt;div class="hover-glow"&gt;Hover glow effect&lt;/div&gt;
+&lt;div class="glass-strong"&gt;Strong glass&lt;/div&gt;
+&lt;div class="glass-frosted"&gt;Frosted glass&lt;/div&gt;
+&lt;div class="glass-vibrant"&gt;Vibrant glass&lt;/div&gt;
+&lt;div class="glass-minimal"&gt;Minimal glass&lt;/div&gt;
 
-&lt;!-- Text alignment --&gt;
-&lt;p class="text-center"&gt;Centered&lt;/p&gt;
-&lt;p class="text-left"&gt;Left aligned&lt;/p&gt;
-&lt;p class="text-right"&gt;Right aligned&lt;/p&gt;
+&lt;!-- Interactive effects --&gt;
+&lt;div class="glass-interactive"&gt;Interactive&lt;/div&gt;
+&lt;div class="morph-hover"&gt;Morph on hover&lt;/div&gt;
+&lt;div class="morph-lift"&gt;Lift effect&lt;/div&gt;
+&lt;div class="hover-shimmer"&gt;Shimmer effect&lt;/div&gt;
 
-&lt;!-- Visibility --&gt;
-&lt;div class="hidden"&gt;Hidden element&lt;/div&gt;</code></pre>
+&lt;!-- Progress bar --&gt;
+&lt;div class="progress-glass"&gt;
+  &lt;div class="progress-fill" style="width: 65%;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Navigation pills --&gt;
+&lt;div class="nav-pills-glass"&gt;
+  &lt;div class="nav-item active"&gt;Home&lt;/div&gt;
+  &lt;div class="nav-item"&gt;About&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Backdrop filters --&gt;
+&lt;div class="backdrop-blur-lg"&gt;Large blur&lt;/div&gt;
+&lt;div class="backdrop-saturate"&gt;Saturated&lt;/div&gt;
+
+&lt;!-- Animations --&gt;
+&lt;div class="animate-fade-in"&gt;Fade in&lt;/div&gt;
+&lt;div class="animate-slide-up"&gt;Slide up&lt;/div&gt;
+&lt;div class="hover-pulse"&gt;Pulse on hover&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>
@@ -675,24 +1003,64 @@
         <!-- JavaScript API -->
         <section id="javascript" class="demo-section">
             <h2>JavaScript API</h2>
-            <p>Simple JavaScript API for enhanced functionality.</p>
+            <p>Enhanced JavaScript API with glassmorphism utilities and interactive effects.</p>
             
             <div class="demo-grid">
                 <div class="demo-component">
-                    <h4>Available Methods:</h4>
+                    <h4>Core Methods:</h4>
                     <ul>
                         <li><code>SimpleMorph.toggleMobileMenu()</code> - Toggle mobile menu</li>
-                        <li><code>SimpleMorph.utils.debounce()</code> - Debounce utility</li>
-                        <li><code>SimpleMorph.utils.isInViewport()</code> - Viewport detection</li>
+                        <li><code>SimpleMorph.applyGlass(selector, type)</code> - Apply glass effects</li>
+                        <li><code>SimpleMorph.animateElements(selector)</code> - Animate elements</li>
+                        <li><code>SimpleMorph.setGlassIntensity(selector, intensity)</code> - Dynamic glass</li>
+                        <li><code>SimpleMorph.addRippleEffect(selector)</code> - Add ripple effects</li>
                     </ul>
-                    <button onclick="SimpleMorph.toggleMobileMenu()" class="button-primary">
-                        Test Mobile Menu Toggle
-                    </button>
+                    
+                    <div class="component-showcase">
+                        <button onclick="SimpleMorph.toggleMobileMenu()" class="button-primary">
+                            Test Mobile Menu
+                        </button>
+                        <button onclick="SimpleMorph.applyGlass('.demo-target', 'vibrant')" class="button-secondary">
+                            Apply Vibrant Glass
+                        </button>
+                        <button onclick="SimpleMorph.animateElements('.demo-target', 'scaleIn')" class="button-secondary">
+                            Animate Elements
+                        </button>
+                    </div>
+                    
+                    <div class="demo-target glass" style="padding: 1rem; margin: 1rem 0; text-align: center;">
+                        Target Element for Testing
+                    </div>
+                    
+                    <h4>Utility Functions:</h4>
+                    <ul>
+                        <li><code>SimpleMorph.utils.debounce()</code> - Debounce utility</li>
+                        <li><code>SimpleMorph.utils.throttle()</code> - Throttle utility</li>
+                        <li><code>SimpleMorph.utils.isInViewport()</code> - Viewport detection</li>
+                        <li><code>SimpleMorph.utils.getScrollPercent()</code> - Scroll percentage</li>
+                        <li><code>SimpleMorph.utils.createRipple()</code> - Create ripple effects</li>
+                    </ul>
                 </div>
                 <div class="code-example">
-&lt;script&gt;
-// Toggle mobile menu programmatically
-SimpleMorph.toggleMobileMenu();
+                    <div class="code-header">
+                        <button class="copy-button" onclick="copyCode(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code>// Apply glass effects dynamically
+SimpleMorph.applyGlass('.my-element', 'frosted');
+
+// Animate elements with stagger
+SimpleMorph.animateElements('.card', 'fadeIn', 150);
+
+// Set dynamic glass intensity (0-1)
+SimpleMorph.setGlassIntensity('.glass', 0.8);
+
+// Add ripple effect to buttons
+SimpleMorph.addRippleEffect('button');
 
 // Use utility functions
 const debouncedFn = SimpleMorph.utils.debounce(
@@ -700,11 +1068,13 @@ const debouncedFn = SimpleMorph.utils.debounce(
     300
 );
 
+// Get scroll percentage
+const scrollPercent = SimpleMorph.utils.getScrollPercent();
+
 // Check if element is in viewport
 const isVisible = SimpleMorph.utils.isInViewport(
     document.querySelector('.card')
-);
-&lt;/script&gt;
+);</code></pre>
                 </div>
             </div>
         </section>
@@ -766,7 +1136,63 @@ const isVisible = SimpleMorph.utils.isInViewport(
         </footer>
     </main>
 
+    <!-- Floating Action Button -->
+    <div class="fab-glass" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </div>
+
     <script src="simple-morph.js"></script>
+    
+    <script>
+        // Demo functionality for the enhanced features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add ripple effect to all buttons
+            SimpleMorph.addRippleEffect('button, .button');
+            
+            // Add some demo parallax elements
+            document.querySelectorAll('.hero-section').forEach(function(element) {
+                element.setAttribute('data-parallax', '0.3');
+            });
+            
+            // Animate cards on page load
+            setTimeout(function() {
+                SimpleMorph.animateElements('.card', 'slideUp', 100);
+            }, 500);
+        });
+        
+        // Enhanced copy code functionality with ripple effect
+        function copyCode(button) {
+            const codeBlock = button.parentElement;
+            const preElement = codeBlock.querySelector('pre code');
+            let codeText;
+            
+            if (preElement) {
+                codeText = preElement.textContent;
+            } else {
+                codeText = codeBlock.textContent.replace(button.textContent, '').trim();
+            }
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalContent = button.innerHTML;
+                button.innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                    Copied!
+                `;
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalContent;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
 
@@ -803,4 +1229,3 @@ const isVisible = SimpleMorph.utils.isInViewport(
             });
         }
     </script>
-

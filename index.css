@@ -1,0 +1,20 @@
+/* Import Simple Morph CSS Framework */
+@import url('./simple-morph.css');
+
+/* Global styles for preview */
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  margin: auto;
+}
+
+/* Ensure the framework styles are applied correctly in preview */
+body {
+  margin: 0;
+  padding: 0;
+}
