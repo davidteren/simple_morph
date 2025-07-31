@@ -100,9 +100,25 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--text-secondary);
             backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .copy-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease-out;
+            opacity: 0;
         }
         
         .copy-button svg {
@@ -110,19 +126,62 @@
             height: 14px;
             stroke: currentColor;
             pointer-events: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
         
         .copy-button:hover {
             background: rgba(74, 158, 255, 0.2);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
-            transform: translateY(-1px);
+            transform: translateY(-1px) scale(1.05);
         }
         
         .copy-button.copied {
             background: rgba(34, 197, 94, 0.2);
             border-color: var(--accent-success);
             color: var(--accent-success);
+            transform: scale(1.1);
+        }
+        
+        .copy-button.copied::before {
+            width: 60px;
+            height: 60px;
+            opacity: 1;
+        }
+        
+        .copy-button.copied svg {
+            transform: scale(1.2);
+        }
+        
+        /* Success pulse animation */
+        @keyframes successPulse {
+            0% { 
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+        
+        .copy-button.copied::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: rgba(34, 197, 94, 0.4);
+            border-radius: 50%;
+            animation: successPulse 0.6s ease-out;
+            pointer-events: none;
         }
         
         /* Feature icons */
@@ -1162,34 +1221,47 @@ const isVisible = SimpleMorph.utils.isInViewport(
             }, 500);
         });
         
-        // Enhanced copy code functionality with ripple effect
+        // Enhanced copy code functionality with smooth animation
         function copyCode(button) {
-            const codeBlock = button.parentElement;
+            const codeBlock = button.parentElement.parentElement;
             const preElement = codeBlock.querySelector('pre code');
             let codeText;
             
             if (preElement) {
                 codeText = preElement.textContent;
             } else {
-                codeText = codeBlock.textContent.replace(button.textContent, '').trim();
+                codeText = codeBlock.textContent.trim();
             }
             
             navigator.clipboard.writeText(codeText).then(() => {
-                const originalContent = button.innerHTML;
-                button.innerHTML = `
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20,6 9,17 4,12"></polyline>
-                    </svg>
-                    Copied!
-                `;
+                // Change icon to checkmark with smooth transition
+                const svg = button.querySelector('svg');
+                const originalSvg = svg.innerHTML;
+                
+                // Add copied class for styling
                 button.classList.add('copied');
                 
+                // Change to checkmark icon
+                svg.innerHTML = `<polyline points="20,6 9,17 4,12"></polyline>`;
+                
+                // Reset after animation
                 setTimeout(() => {
-                    button.innerHTML = originalContent;
                     button.classList.remove('copied');
-                }, 2000);
+                    svg.innerHTML = originalSvg;
+                }, 1200);
             }).catch(err => {
                 console.error('Failed to copy: ', err);
+                
+                // Error feedback - brief red flash
+                button.style.background = 'rgba(255, 59, 48, 0.2)';
+                button.style.borderColor = 'var(--accent-error)';
+                button.style.color = 'var(--accent-error)';
+                
+                setTimeout(() => {
+                    button.style.background = '';
+                    button.style.borderColor = '';
+                    button.style.color = '';
+                }, 800);
             });
         }
     </script>
@@ -1198,34 +1270,4 @@ const isVisible = SimpleMorph.utils.isInViewport(
 
 
     <script>
-        // Copy code functionality
-        function copyCode(button) {
-            const codeBlock = button.parentElement;
-            const preElement = codeBlock.querySelector('pre code');
-            let codeText;
-            
-            if (preElement) {
-                codeText = preElement.textContent;
-            } else {
-                codeText = codeBlock.textContent.replace(button.textContent, '').trim();
-            }
-            
-            navigator.clipboard.writeText(codeText).then(() => {
-                const originalContent = button.innerHTML;
-                button.innerHTML = `
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20,6 9,17 4,12"></polyline>
-                    </svg>
-                    Copied!
-                `;
-                button.classList.add('copied');
-                
-                setTimeout(() => {
-                    button.innerHTML = originalContent;
-                    button.classList.remove('copied');
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        }
     </script>
