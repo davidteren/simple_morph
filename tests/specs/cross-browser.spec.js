@@ -133,16 +133,16 @@ test.describe('Cross-Browser Compatibility Tests @cross-browser', () => {
 
   test.describe('JavaScript API Compatibility', () => {
     test('should support modern JavaScript features', async ({ simpleMorphPage }) => {
-      // Test const/let support
+      // Test const/let support without eval (security safe)
       const hasModernJS = await simpleMorphPage.evaluate(() => {
         try {
-          eval('const test = 1; let test2 = 2;');
+          new Function('const test = 1; let test2 = 2;');
           return true;
         } catch (e) {
           return false;
         }
       });
-      
+
       expect(hasModernJS).toBe(true);
     });
 
