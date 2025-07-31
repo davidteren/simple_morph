@@ -1,0 +1,37 @@
+{
+  "name": "simple-morph-tests",
+  "version": "1.0.0",
+  "description": "Comprehensive test suite for Simple Morph CSS framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "test:visual": "playwright test --grep @visual",
+    "test:functional": "playwright test --grep @functional",
+    "test:responsive": "playwright test --grep @responsive",
+    "test:accessibility": "playwright test --grep @accessibility",
+    "test:cross-browser": "playwright test --project=chromium --project=firefox --project=webkit",
+    "install-browsers": "playwright install"
+  },
+  "keywords": [
+    "css-framework",
+    "testing",
+    "playwright",
+    "glassmorphism",
+    "responsive-design"
+  ],
+  "author": "David Teren",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@axe-core/playwright": "^4.8.2",
+    "pixelmatch": "^5.3.0",
+    "pngjs": "^7.0.0"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}

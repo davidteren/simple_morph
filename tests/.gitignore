@@ -1,0 +1,35 @@
+# Playwright Test Results
+test-results/
+reports/
+playwright-report/
+
+# Screenshots and videos from test runs
+**/test-results/
+**/screenshots/
+**/videos/
+
+# Node modules
+node_modules/
+
+# Playwright browsers
+.playwright/
+
+# Test artifacts
+*.png
+*.webm
+*.mp4
+*.json
+*.xml
+*.md
+
+# But keep the snapshots for visual regression testing
+!specs/**-snapshots/
+!specs/**-snapshots/**
+
+# Keep configuration and source files
+!package.json
+!package-lock.json
+!playwright.config.js
+!**/*.spec.js
+!**/*.js
+!.gitignore
