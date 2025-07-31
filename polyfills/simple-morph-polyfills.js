@@ -23,9 +23,13 @@
     },
 
     hasCustomProperties: function() {
-      const testEl = document.createElement('div');
-      testEl.style.setProperty('--test', 'test');
-      return testEl.style.getPropertyValue('--test') === 'test';
+      try {
+        const testEl = document.createElement('div');
+        testEl.style.setProperty('--test', 'test');
+        return testEl.style.getPropertyValue('--test') === 'test';
+      } catch (e) {
+        return false;
+      }
     },
 
     hasSmoothScroll: function() {
@@ -42,6 +46,16 @@
 
     hasClassList: function() {
       return 'classList' in document.createElement('div');
+    },
+
+    hasModernJS: function() {
+      try {
+        // Test const/let support without eval
+        new Function('const test = 1; let test2 = 2;');
+        return true;
+      } catch (e) {
+        return false;
+      }
     }
   };
 

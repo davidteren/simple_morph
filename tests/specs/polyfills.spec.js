@@ -1,14 +1,15 @@
 // Polyfill tests for Simple Morph framework
 const { test, expect } = require('../fixtures/page-fixtures');
+const path = require('path');
 
 test.describe('Polyfill Tests @polyfills', () => {
   test.beforeEach(async ({ page }) => {
     // Load page with polyfills
     await page.goto('/', { waitUntil: 'networkidle' });
-    
-    // Load polyfills
-    await page.addScriptTag({ path: '../polyfills/simple-morph-polyfills.js' });
-    
+
+    // Load polyfills using absolute path for reliability
+    await page.addScriptTag({ path: path.resolve(__dirname, '../../polyfills/simple-morph-polyfills.js') });
+
     // Wait for polyfills to initialize
     await page.waitForFunction(() => window.SimpleMorphPolyfills !== undefined);
   });
