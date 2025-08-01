@@ -8,7 +8,12 @@ test.describe('Polyfill Tests @polyfills', () => {
     await page.goto('/', { waitUntil: 'networkidle' });
 
     // Load polyfills using absolute path for reliability
-    await page.addScriptTag({ path: path.resolve(__dirname, '../../polyfills/simple-morph-polyfills.js') });
+    const polyfillPath = path.resolve(__dirname, '../../polyfills/simple-morph-polyfills.js');
+    try {
+      await page.addScriptTag({ path: polyfillPath });
+    } catch (error) {
+      throw new Error(`Failed to load polyfills from ${polyfillPath}: ${error.message}`);
+    }
 
     // Wait for polyfills to initialize
     await page.waitForFunction(() => window.SimpleMorphPolyfills !== undefined);
