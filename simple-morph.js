@@ -164,10 +164,11 @@
     setupGlassMorphing: function() {
       // Auto-apply glass effects based on scroll position
       const glassElements = document.querySelectorAll('.glass, .glass-strong, .glass-frosted');
-      
+
       const updateGlassIntensity = this.utils.throttle(function() {
-        const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-        
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? window.scrollY / docHeight : 0;
+
         glassElements.forEach(function(element) {
           const intensity = Math.min(1, scrollPercent * 2);
           element.style.setProperty('--dynamic-blur', (10 + intensity * 20) + 'px');
@@ -181,7 +182,17 @@
 
     // Intersection Observer for animations
     setupIntersectionObserver: function() {
-      if (!window.IntersectionObserver) return;
+      if (!window.IntersectionObserver) {
+        // Fallback: immediately add animation classes to all target elements
+        document.querySelectorAll('.demo-section, .feature-grid, .card').forEach(function(element) {
+          element.classList.add('animate-fade-in');
+          const children = element.querySelectorAll('.card, .glass, button');
+          children.forEach(function(child) {
+            child.classList.add('animate-slide-up');
+          });
+        });
+        return;
+      }
 
       const observerOptions = {
         threshold: 0.1,
@@ -192,7 +203,7 @@
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
-            
+
             // Add staggered animation for child elements
             const children = entry.target.querySelectorAll('.card, .glass, button');
             children.forEach(function(child, index) {
@@ -213,15 +224,20 @@
     // Parallax effects for enhanced depth
     setupParallaxEffects: function() {
       const parallaxElements = document.querySelectorAll('[data-parallax]');
-      
+
       if (parallaxElements.length === 0) return;
+
+      // Respect reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
 
       const updateParallax = this.utils.throttle(function() {
         const scrollTop = window.pageYOffset;
-        
+
         parallaxElements.forEach(function(element) {
           const speed = parseFloat(element.dataset.parallax) || 0.5;
-          const yPos = -(scrollTop * speed);
+          const clampedSpeed = Math.max(-2, Math.min(2, speed));
+          const yPos = -(scrollTop * clampedSpeed);
           element.style.transform = `translateY(${yPos}px)`;
         });
       }, 16);
@@ -290,18 +306,22 @@
 
       // Create ripple effect
       createRipple: function(event, element) {
+        const rect = element.getBoundingClientRect();
         const circle = document.createElement('span');
         const diameter = Math.max(element.clientWidth, element.clientHeight);
         const radius = diameter / 2;
 
+        const x = Math.max(0, Math.min(element.clientWidth, event.clientX - rect.left));
+        const y = Math.max(0, Math.min(element.clientHeight, event.clientY - rect.top));
+
         circle.style.width = circle.style.height = `${diameter}px`;
-        circle.style.left = `${event.clientX - element.offsetLeft - radius}px`;
-        circle.style.top = `${event.clientY - element.offsetTop - radius}px`;
+        circle.style.left = `${x - radius}px`;
+        circle.style.top = `${y - radius}px`;
         circle.classList.add('ripple');
 
-        const ripple = element.getElementsByClassName('ripple')[0];
-        if (ripple) {
-          ripple.remove();
+        const existingRipples = element.getElementsByClassName('ripple');
+        while (existingRipples.length > 0) {
+          existingRipples[0].remove();
         }
 
         element.appendChild(circle);
