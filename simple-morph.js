@@ -18,8 +18,6 @@
       this.setupFormValidation();
       this.setupTocClose();
       this.setupGlassMorphing();
-      this.setupIntersectionObserver();
-      this.setupParallaxEffects();
       
       // Expose public API
       this.exposeAPI();
@@ -381,6 +379,16 @@
           elements.forEach(function(element, index) {
             SimpleMorph.utils.animateIn(element, animation, index * stagger);
           });
+        },
+
+        // Optional: enable scroll-triggered animations in docs/demo
+        enableScrollAnimations: function() {
+          SimpleMorph.setupIntersectionObserver();
+        },
+
+        // Optional: enable parallax effects in docs/demo
+        enableParallaxEffects: function() {
+          SimpleMorph.setupParallaxEffects();
         },
 
         // Dynamic glass intensity

@@ -29,7 +29,7 @@ A minimalist CSS framework with futuristic dark theme and glassmorphism effects.
 
 ## 🌟 Live Demo
 
-**[View the complete demo with all components →](https://davidteren.github.io/simple-morph/)**
+**[View the complete demo with all components →](https://davidteren.github.io/simple_morph/)**
 
 Experience all the features, components, and interactive elements in action. The demo includes:
 - Complete component showcase
@@ -64,8 +64,8 @@ Experience all the features, components, and interactive elements in action. The
 
 ### 🌐 CDN (GitHub Pages)
 ```html
-<link rel="stylesheet" href="https://davidteren.github.io/simple-morph/simple-morph.css">
-<script src="https://davidteren.github.io/simple-morph/simple-morph.js"></script>
+<link rel="stylesheet" href="https://davidteren.github.io/simple_morph/simple-morph.css">
+<script src="https://davidteren.github.io/simple_morph/simple-morph.js"></script>
 ```
 
 **That's it!** No npm install, no build step, no configuration. Just include the files and start writing semantic HTML.
@@ -396,8 +396,8 @@ Simple Morph requires no build process! For development and preview:
 
 This project follows [Semantic Versioning](https://semver.org/).
 
-- **Current Version**: 0.0.1-alpha
-- **Release Date**: January 11, 2025
+- **Current Version**: 0.0.1-beta
+- **Release Date**: July 30, 2025
 - **Status**: Alpha (breaking changes may occur)
 - **Changelog**: See [CHANGELOG.md](CHANGELOG.md) for detailed release notes
 - **Releases**: View all releases on [GitHub](https://github.com/davidteren/simple_morph/releases)

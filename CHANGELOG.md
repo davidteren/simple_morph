@@ -7,13 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned
-- Fix hamburger menu functionality in mobile mode
-- Improve shimmer effect animation
-- Enhance strong glass effect styling
-- Fix tooltip hover functionality
-- Improve modal dialog interactions
-
 ## [0.0.1-beta] - 2025-07-30
 
 ### Added

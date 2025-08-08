@@ -5,428 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Morph - Complete Demo & Documentation</title>
     <link rel="stylesheet" href="simple-morph.css">
-    <style>
-        /* Demo-specific styles */
-        .demo-section {
-            margin: 4rem 0;
-            padding: 3rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-        }
-        
-        .demo-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(74, 158, 255, 0.3) 50%, 
-                transparent 100%);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 1rem auto 0;
-        }
-        
-        .demo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 3rem 0;
-            align-items: start;
-        }
-        
-        .code-example {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            position: relative;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--glass-shadow);
-        }
-        
-        .code-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .code-language {
-            background: var(--accent-primary);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
-        .code-example pre {
-            margin: 0;
-            padding: 1.5rem;
-            overflow-x: auto;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .code-example code {
-            background: none;
-            padding: 0;
-            color: var(--text-secondary);
-        }
-        
-        .copy-button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            color: var(--text-secondary);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .copy-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.4s ease-out;
-            opacity: 0;
-        }
-        
-        .copy-button svg {
-            width: 14px;
-            height: 14px;
-            stroke: currentColor;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .copy-button:hover {
-            background: rgba(74, 158, 255, 0.2);
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-            transform: translateY(-1px) scale(1.05);
-        }
-        
-        .copy-button.copied {
-            background: rgba(34, 197, 94, 0.2);
-            border-color: var(--accent-success);
-            color: var(--accent-success);
-            transform: scale(1.1);
-        }
-        
-        .copy-button.copied::before {
-            width: 60px;
-            height: 60px;
-            opacity: 1;
-        }
-        
-        .copy-button.copied svg {
-            transform: scale(1.2);
-        }
-        
-        /* Success pulse animation */
-        @keyframes successPulse {
-            0% { 
-                transform: translate(-50%, -50%) scale(0);
-                opacity: 0;
-            }
-            50% { 
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 0.8;
-            }
-            100% { 
-                transform: translate(-50%, -50%) scale(2);
-                opacity: 0;
-            }
-        }
-        
-        .copy-button.copied::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            background: rgba(34, 197, 94, 0.4);
-            border-radius: 50%;
-            animation: successPulse 0.6s ease-out;
-            pointer-events: none;
-        }
-        
-        /* Feature icons */
-        .feature-icon {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 1rem;
-            color: var(--accent-primary);
-            stroke-width: 1.5;
-        }
-        
-        .demo-component {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            backdrop-filter: blur(var(--glass-blur));
-            box-shadow: var(--glass-shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .demo-component:hover {
-            background: var(--glass-bg-strong);
-            transform: translateY(-2px);
-        }
-        
-        .component-showcase {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .hero-section {
-            text-align: center;
-            padding: 6rem 0;
-            background: linear-gradient(135deg, 
-                rgba(74, 158, 255, 0.08) 0%, 
-                rgba(123, 104, 238, 0.08) 50%,
-                rgba(255, 119, 198, 0.08) 100%);
-            border-radius: 20px;
-            margin: 3rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-title {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, #4A9EFF 50%, #7B68EE 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin: 2rem auto;
-            max-width: 700px;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-        
-        .hero-orbs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .hero-orb {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(74, 158, 255, 0.15) 0%, transparent 70%);
-            filter: blur(40px);
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .hero-orb-1 {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        
-        .hero-orb-2 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-            background: radial-gradient(circle, rgba(123, 104, 238, 0.15) 0%, transparent 70%);
-        }
-        
-        .hero-orb-3 {
-            width: 100px;
-            height: 100px;
-            bottom: 20%;
-            left: 60%;
-            animation-delay: 4s;
-            background: radial-gradient(circle, rgba(255, 119, 198, 0.15) 0%, transparent 70%);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .toc {
-            background: var(--glass-bg-strong);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1rem 1.5rem 1.5rem 1.5rem;
-            margin: 2rem 0;
-            position: sticky;
-            top: 4rem;
-            backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
-            box-shadow: var(--glass-shadow-strong);
-            z-index: 10;
-        }
-        
-        .toc h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-        
-        .toc ul {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem 1.5rem;
-        }
-        
-        .toc li {
-            margin: 0.25rem 0;
-        }
-        
-        .toc a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .toc a:hover {
-            color: var(--accent-primary);
-        }
-        
-        /* Installation Steps */
-        .installation-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-        
-        .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
-        .step-content h4 {
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-        
-        /* Feature Icon */
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .demo-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .toc {
-                position: static;
-            }
-            
-            .toc ul {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .installation-steps {
-                gap: 1.5rem;
-            }
-            
-            .step {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="live-region" class="visually-hidden" aria-live="polite"></div>
     <header class="navbar">
         <div class="navbar-container">
             <a href="#" class="navbar-brand">
@@ -440,7 +23,7 @@
                     <li><a href="#customization">Customization</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
@@ -448,15 +31,15 @@
         </div>
     </header>
 
-    <div class="mobile-menu">
+    <div id="mobile-menu" class="mobile-menu">
         <a href="#getting-started">Getting Started</a>
         <a href="#documentation">Documentation</a>
         <a href="#customization">Customization</a>
     </div>
 
-    <main>
+    <main id="main">
         <!-- Hero Section -->
-        <section class="hero-section">
+        <section class="hero-section full-bleed">
             <div class="hero-content">
                 <h1 class="hero-title">Simple Morph</h1>
                 <p class="hero-subtitle">A streamlined CSS framework with essential components only. Copy two files and start building beautiful, modern interfaces with advanced glassmorphism effects.</p>
@@ -940,41 +523,41 @@
             <div class="demo-grid">
                 <div class="demo-component">
                     <h4>Glass Variants</h4>
-                    <div class="glass" style="padding: 1rem; margin: 0.5rem 0;">
+                    <div class="glass glass-sample">
                         <p class="text-center">Standard Glass</p>
                     </div>
-                    <div class="glass-strong" style="padding: 1rem; margin: 0.5rem 0;">
+                    <div class="glass-strong glass-sample">
                         <p class="text-center">Strong Glass</p>
                     </div>
-                    <div class="glass-frosted" style="padding: 1rem; margin: 0.5rem 0;">
+                    <div class="glass-frosted glass-sample">
                         <p class="text-center">Frosted Glass</p>
                     </div>
-                    <div class="glass-vibrant" style="padding: 1rem; margin: 0.5rem 0;">
+                    <div class="glass-vibrant glass-sample">
                         <p class="text-center">Vibrant Glass</p>
                     </div>
-                    <div class="glass-minimal" style="padding: 1rem; margin: 0.5rem 0;">
+                    <div class="glass-minimal glass-sample">
                         <p class="text-center">Minimal Glass</p>
                     </div>
                     
-                    <h4 style="margin-top: 2rem;">Interactive Effects</h4>
+                    <h4 class="mt-2">Interactive Effects</h4>
                     <div class="component-showcase">
-                        <button class="glass-interactive" style="padding: 0.75rem 1.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1);">
+                        <button class="glass-interactive btn-glass-demo">
                             Interactive Glass
                         </button>
-                        <div class="morph-hover glass" style="padding: 1rem; cursor: pointer;">
+                        <div class="morph-hover glass interactive-sample">
                             Morph Hover
                         </div>
-                        <div class="morph-lift glass" style="padding: 1rem; cursor: pointer;">
+                        <div class="morph-lift glass interactive-sample">
                             Lift Effect
                         </div>
                     </div>
                     
-                    <h4 style="margin-top: 2rem;">Progress & Navigation</h4>
-                    <div class="progress-glass" style="margin: 1rem 0;">
-                        <div class="progress-fill" style="width: 65%;"></div>
+                    <h4 class="mt-2">Progress & Navigation</h4>
+                    <div class="progress-glass demo-spaced">
+                        <div class="progress-fill w-65"></div>
                     </div>
                     
-                    <div class="nav-pills-glass" style="margin: 1rem 0;">
+                    <div class="nav-pills-glass demo-spaced">
                         <div class="nav-item active">Home</div>
                         <div class="nav-item">About</div>
                         <div class="nav-item">Contact</div>
@@ -1087,7 +670,7 @@
                         </button>
                     </div>
                     
-                    <div class="demo-target glass" style="padding: 1rem; margin: 1rem 0; text-align: center;">
+                    <div class="demo-target glass text-center">
                         Target Element for Testing
                     </div>
                     
@@ -1185,10 +768,10 @@ const isVisible = SimpleMorph.utils.isInViewport(
         </section>
 
         <!-- Footer -->
-        <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 4rem;">
+        <footer class="site-footer">
             <h3>Ready to get started?</h3>
             <p>Copy <code>simple-morph.css</code> and <code>simple-morph.js</code> to your project and start building!</p>
-            <div class="component-showcase" style="justify-content: center; margin-top: 2rem;">
+            <div class="component-showcase centered">
                 <button class="button-primary">Download Files</button>
                 <button class="button-secondary">View on GitHub</button>
             </div>
@@ -1203,71 +786,6 @@ const isVisible = SimpleMorph.utils.isInViewport(
     </div>
 
     <script src="simple-morph.js"></script>
-    
-    <script>
-        // Demo functionality for the enhanced features
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add ripple effect to all buttons
-            SimpleMorph.addRippleEffect('button, .button');
-            
-            // Add some demo parallax elements
-            document.querySelectorAll('.hero-section').forEach(function(element) {
-                element.setAttribute('data-parallax', '0.3');
-            });
-            
-            // Animate cards on page load
-            setTimeout(function() {
-                SimpleMorph.animateElements('.card', 'slideUp', 100);
-            }, 500);
-        });
-        
-        // Enhanced copy code functionality with smooth animation
-        function copyCode(button) {
-            const codeBlock = button.parentElement.parentElement;
-            const preElement = codeBlock.querySelector('pre code');
-            let codeText;
-            
-            if (preElement) {
-                codeText = preElement.textContent;
-            } else {
-                codeText = codeBlock.textContent.trim();
-            }
-            
-            navigator.clipboard.writeText(codeText).then(() => {
-                // Change icon to checkmark with smooth transition
-                const svg = button.querySelector('svg');
-                const originalSvg = svg.innerHTML;
-                
-                // Add copied class for styling
-                button.classList.add('copied');
-                
-                // Change to checkmark icon
-                svg.innerHTML = `<polyline points="20,6 9,17 4,12"></polyline>`;
-                
-                // Reset after animation
-                setTimeout(() => {
-                    button.classList.remove('copied');
-                    svg.innerHTML = originalSvg;
-                }, 1200);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                
-                // Error feedback - brief red flash
-                button.style.background = 'rgba(255, 59, 48, 0.2)';
-                button.style.borderColor = 'var(--accent-error)';
-                button.style.color = 'var(--accent-error)';
-                
-                setTimeout(() => {
-                    button.style.background = '';
-                    button.style.borderColor = '';
-                    button.style.color = '';
-                }, 800);
-            });
-        }
-    </script>
-</body>
-</html>
-
-
-    <script>
-    </script>
+    <script src="docs.js"></script>
+    </body>
+    </html>

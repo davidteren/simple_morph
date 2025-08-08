@@ -6,7 +6,7 @@
 
 /* CSS Custom Properties - Essential Variables Only */
 :root {
-  --navbar-height: 56px; /* height of fixed navbar */
+  /* --navbar-height: 56px;  Removed duplicate; using 3rem below for consistency */
   --font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
   --font-heading: var(--font-family);
   --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -81,11 +81,29 @@ a {
   text-decoration: none;
 }
 
+/* Ensure visible focus for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Screen reader only utility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0; padding: 0; margin: -1px;
+}
+
 html {
   font-family: var(--font-family);
   font-size: 1rem;
   scroll-behavior: smooth;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 body {
@@ -140,6 +158,22 @@ body::after {
   z-index: 2;
 }
 
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--accent-primary);
+  color: #fff;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 0 0 var(--border-radius-small) 0;
+  z-index: 1100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -180,6 +214,22 @@ blockquote {
   margin: var(--spacing-lg) 0;
   border-radius: var(--border-radius);
   font-style: italic;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Common animated classes in demo/framework */
+  .shimmer,
+  .hover-pulse,
+  [class*="orb"],
+  .copy-button::after {
+    animation: none !important;
+  }
 }
 
 /* Lists */
@@ -913,7 +963,10 @@ label:has(input[type="checkbox"]) {
 @media (max-width: 768px) {
   body {
     grid-template-columns: 1fr;
-    padding: var(--navbar-height) var(--spacing-md) var(--spacing-md);
+    padding-top: var(--navbar-height);
+    padding-right: 0;
+    padding-bottom: var(--spacing-md);
+    padding-left: 0;
   }
 
   body > * {
@@ -930,6 +983,11 @@ label:has(input[type="checkbox"]) {
 
   .mobile-menu-toggle {
     display: block;
+  }
+
+  /* Slightly increase navbar inner padding on small screens */
+  .navbar-container {
+    padding: 0 clamp(1rem, 5vw, 1.5rem);
   }
 }
 
@@ -1024,14 +1082,15 @@ nav.toc.hidden {
   padding: 3rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
+  overflow: hidden;
 }
 
 .demo-section::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -50%;
-  width: 200%;
+  left: 0;
+  width: 100%;
   height: 1px;
   background: linear-gradient(90deg, 
     transparent 0%, 
